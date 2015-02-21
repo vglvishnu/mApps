@@ -130,7 +130,7 @@
     
     const char *dbpath = [_databasePath UTF8String];
     sqlite3_stmt *statement;
-    NSLog(@"Entering readFromTickerDB");
+    NSLog(@"Entering readFromStoreDB");
     if(sqlite3_open(dbpath,&_storePassDB )== SQLITE_OK) {
         
         NSString *querySQL = [NSString stringWithFormat:@"SELECT DISTINCT FOLDERNAME FROM SPENTRY" ];
