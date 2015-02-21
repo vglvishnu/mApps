@@ -108,7 +108,13 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="40E-vW-tfp">
+                            <connections>
+                                <segue destination="cpL-C0-uIl" kind="show" id="I5t-ml-MQF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,30 +198,30 @@
                     <navigationItem key="navigationItem" id="HBd-ib-Y8Y">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1WP-Vp-h0D">
                             <connections>
-                                <segue destination="lRE-hb-WFY" kind="unwind" unwindAction="unwindToList:" id="wKZ-RQ-UUA"/>
+                                <segue destination="lRE-hb-WFY" kind="unwind" unwindAction="unwindToList:" id="rlW-6Y-Uh7"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="pIV-My-XZx">
                             <connections>
-                                <segue destination="lRE-hb-WFY" kind="unwind" unwindAction="unwindToList:" id="d3m-RZ-qda"/>
+                                <segue destination="lRE-hb-WFY" kind="unwind" unwindAction="unwindToList:" id="BIZ-RE-yHf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="1WP-Vp-h0D" id="Oed-VB-SJv"/>
-                        <outlet property="folderName" destination="wUf-Vz-pVv" id="3F4-id-bBk"/>
-                        <outlet property="login" destination="pSt-Fi-8WO" id="weo-Xn-GAN"/>
-                        <outlet property="notes" destination="TOo-6S-7h0" id="rUL-o3-Lnf"/>
-                        <outlet property="passWord" destination="9Db-De-0Cn" id="9g7-9w-G4K"/>
-                        <outlet property="saveButton" destination="pIV-My-XZx" id="2Di-Ow-zsw"/>
-                        <outlet property="sptitle" destination="leq-PW-IpJ" id="0BP-sO-KiE"/>
-                        <outlet property="url" destination="YaH-xG-AH8" id="oFe-zz-mjk"/>
+                        <outlet property="cancelButton" destination="1WP-Vp-h0D" id="Xnd-UU-wCK"/>
+                        <outlet property="folderName" destination="wUf-Vz-pVv" id="KiD-SM-Bps"/>
+                        <outlet property="login" destination="pSt-Fi-8WO" id="B44-md-jxd"/>
+                        <outlet property="notes" destination="TOo-6S-7h0" id="gp4-Uj-VLx"/>
+                        <outlet property="passWord" destination="9Db-De-0Cn" id="lu0-jF-jhu"/>
+                        <outlet property="saveButton" destination="pIV-My-XZx" id="8Ly-rr-68L"/>
+                        <outlet property="spTitle" destination="leq-PW-IpJ" id="nEc-kY-hH0"/>
+                        <outlet property="url" destination="YaH-xG-AH8" id="hYB-nY-EzY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYE-tX-L6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lRE-hb-WFY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1789" y="-630"/>
+            <point key="canvasLocation" x="2601" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -231,6 +237,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="S5r-SY-Ttq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cpL-C0-uIl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V7G-s1-sRl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VfQ-Xs-GrY" kind="relationship" relationship="rootViewController" id="0WD-ch-0r0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oms-n5-mqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789" y="-630"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

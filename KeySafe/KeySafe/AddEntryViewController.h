@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SPStoreEntry.h"
 
-@interface AddEntryViewController : UITableViewController
+@interface AddEntryViewController : UIViewController
 
 
 @property SPStoreEntry *keyEntry;
