@@ -48,6 +48,21 @@
     
     //TODO:
     
+    if(sender != self.saveButton) return;
+    
+    if(self.spTitle.text.length > 0 && self.folderName.text.length > 0 ) {
+        
+        self.keyEntry = [[SPStoreEntry alloc] init];
+        
+        self.keyEntry.folderName = self.folderName.text;
+        self.keyEntry.sptitle    = self.spTitle.text;
+        self.keyEntry.login      = self.login.text;
+        self.keyEntry.passWord   = self.passWord.text;
+        self.keyEntry.url        = self.url.text;
+        self.keyEntry.notes      = self.notes.text;
+        
+    }
+    
 }
 
 @end

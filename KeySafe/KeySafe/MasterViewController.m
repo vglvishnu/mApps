@@ -21,7 +21,7 @@
 @property NSString *databasePath;
 @property NSString *docDir;
 @property SPStoreEntry *storeEntry;
-@property NSMutableArray *entries;
+@property NSMutableArray *keyEntries;
 @property NSMutableArray *spfolders;
 @property SPDatasebaseDAO *dbdao;
 @end
@@ -39,13 +39,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.entries =[[NSMutableArray alloc] init];
+    self.keyEntries =[[NSMutableArray alloc] init];
     
     self.spfolders = [[NSMutableArray alloc]init];
     
     _dbdao = [[SPDatasebaseDAO alloc]init];
     
     [_dbdao createDBIfNotExists];
+    [self.keyEntries addObjectsFromArray:[_dbdao getEntriesFromDB]];
     [self.spfolders addObjectsFromArray:[_dbdao getFoldersFromDB]];
 
     // Do any additional setup after loading the view, typically from a nib.
@@ -61,14 +62,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
+//- (void)insertNewObject:(id)sender {
+//    if (!self.objects) {
+//        self.objects = [[NSMutableArray alloc] init];
+//    }
+//    [self.objects insertObject:[NSDate date] atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
 
 #pragma mark - Segues
 
@@ -81,6 +82,26 @@
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
+    
+    
+    if ([[segue identifier] isEqualToString:@"showTitle"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        self.selectedfolderName  = self.spfolders[indexPath.row];
+        id folder = self.selectedfolderName  = self.spfolders[indexPath.row];
+    
+        self.titleViewController = (TitleTableViewController  *)[[segue destinationViewController] topViewController];
+        [self.titleViewController setFolderName:folder];
+        [self.titleViewController setSpAllEntries:self.keyEntries];
+        NSPredicate *folderpredicate = [NSPredicate predicateWithFormat:@"folderName = %@", folder];
+
+     
+        //[self.titleViewController setDbdao:self.dbdao];
+        [self.titleViewController.spselectedEntries addObjectsFromArray:[self.keyEntries filteredArrayUsingPredicate:folderpredicate]];
+        //controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+       // controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+    
+    
 }
 
 #pragma mark - Table View
@@ -122,7 +143,7 @@
     if ( addSource.keyEntry) {
         NSLog(@"Insert in entry Table");
         
-        [self.entries addObject:addSource.keyEntry];
+        [self.keyEntries addObject:addSource.keyEntry];
         [self updateSPFolderObject:addSource.keyEntry.folderName];
         
         [self.tableView reloadData];

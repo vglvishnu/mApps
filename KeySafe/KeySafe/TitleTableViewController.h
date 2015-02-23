@@ -12,7 +12,10 @@
 @interface TitleTableViewController : UITableViewController
 
 @property (strong, nonatomic) id folderName;
-@property SPDatasebaseDAO *dbdao;
+//@property SPDatasebaseDAO *dbdao;
+@property NSMutableArray *spAllEntries;
+@property NSMutableArray *spselectedEntries;
 
 - (void)setFolderName:(id)newFolderName;
+
 @end

@@ -10,8 +10,7 @@
 #import "SPDatasebaseDAO.h"
 
 @interface TitleTableViewController ()
-@property NSMutableArray *spAllEntries;
-@property NSMutableArray *spselectedEntries;
+
 
 
 @end
@@ -31,19 +30,33 @@
     }
 }
 
+-(void) updateSpSelectedEntriesCollection :(NSArray *) spEntries {
+    
+    for (SPStoreEntry *entrie in spEntries) {
+        
+        if([self.spselectedEntries indexOfObject:entrie] == NSNotFound) {
+            
+            [self.spselectedEntries addObject:entrie];
+        }
+        
+    }
+    
+}
+
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Title view Controller");
+//    NSLog(@"Title view Controller");
     //self.dbdao = [[SPDatasebaseDAO alloc] init];
-    self.spAllEntries  =[[NSMutableArray alloc] init];
-    self.spAllEntries  = [self.dbdao getEntriesFromDB];
-    self.spselectedEntries  =[[NSMutableArray alloc] init];
-    NSPredicate *folderpredicate = [NSPredicate predicateWithFormat:@"folderName = %@", self.folderName];
-    [self.spselectedEntries addObjectsFromArray:[self.spAllEntries filteredArrayUsingPredicate:folderpredicate]];
-    
+//    self.spAllEntries  =[[NSMutableArray alloc] init];
+//    self.spAllEntries  = [self.dbdao getEntriesFromDB];
+//    self.spselectedEntries  =[[NSMutableArray alloc] init];
+//    NSPredicate *folderpredicate = [NSPredicate predicateWithFormat:@"folderName = %@", self.folderName];
+//    [self updateSpSelectedEntriesCollection:[self.spAllEntries filteredArrayUsingPredicate:folderpredicate]];
+//    //[self.spselectedEntries addObjectsFromArray:[self.spAllEntries filteredArrayUsingPredicate:folderpredicate]];
+//    
     
     
     // Uncomment the following line to preserve selection between presentations.
