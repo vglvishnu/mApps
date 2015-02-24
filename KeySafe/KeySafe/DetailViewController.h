@@ -21,12 +21,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *folderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *spTitle;
 
-@property (weak, nonatomic) IBOutlet UITextField *spTitle;
-@property (weak, nonatomic) IBOutlet UITextField *login;
-@property (weak, nonatomic) IBOutlet UITextField *passWord;
-@property (weak, nonatomic) IBOutlet UITextField *url;
-@property (weak, nonatomic) IBOutlet UITextView *notes;
+@property (weak, nonatomic) IBOutlet UILabel *login;
+@property (weak, nonatomic) IBOutlet UILabel *passWord;
+
+@property (weak, nonatomic) IBOutlet UILabel *url;
+
 
 @end
 

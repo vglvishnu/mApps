@@ -30,12 +30,13 @@
     // Update the user interface for the detail item.
     if (self.entry) {
         //self.detailDescriptionLabel.text = [self.detailItem description];
-        self.folderLabel.text = self.entry.folderName;
-        self.spTitle.text     = self.entry.sptitle;
-        self.login.text       = self.entry.login;
-        self.passWord.text    = self.entry.passWord;
-        self.url.text         = self.entry.url;
-        self.notes.text       = self.entry.notes;
+        self.folderLabel.text = [@"Folder  :" stringByAppendingString:self.entry.folderName];
+        self.spTitle.text     = [@"Title   :" stringByAppendingString:self.entry.sptitle];
+        self.login.text       = [@"Login   :" stringByAppendingString:self.entry.login ];
+        self.passWord.text    = [@"PassWord:" stringByAppendingString:self.entry.passWord];
+        self.url.text         = [@"URL     :" stringByAppendingString:self.entry.url];
+        
+        
     }
 }
 

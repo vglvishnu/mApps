@@ -62,67 +62,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Folder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQA-A1-WTd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQA-A1-WTd">
                                 <rect key="frame" x="31" y="99" width="539" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Folder">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMU-Bn-cSU">
-                                <rect key="frame" x="26" y="141" width="539" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Login" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiC-BR-27n">
-                                <rect key="frame" x="26" y="197" width="539" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="PassWord" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-NL-V3b">
-                                <rect key="frame" x="26" y="256" width="539" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="url" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksJ-1Q-sr5">
-                                <rect key="frame" x="26" y="310" width="539" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Notes" translatesAutoresizingMaskIntoConstraints="NO" id="atP-12-cja">
-                                <rect key="frame" x="26" y="366" width="539" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrm-eD-pUw">
+                                <rect key="frame" x="31" y="136" width="539" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Title">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZX-0c-gDi">
+                                <rect key="frame" x="31" y="204" width="539" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Login">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc8-WS-t2R">
+                                <rect key="frame" x="31" y="235" width="539" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="passWord">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1Z-gc-1GT">
+                                <rect key="frame" x="31" y="303" width="539" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="url">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ksJ-1Q-sr5" firstAttribute="top" secondItem="wpf-NL-V3b" secondAttribute="bottom" constant="24" id="0bI-rm-Ofc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ksJ-1Q-sr5" secondAttribute="trailing" constant="19" id="4GE-Ra-rbn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PiC-BR-27n" secondAttribute="trailing" constant="19" id="7o1-dC-h5d"/>
-                            <constraint firstItem="ksJ-1Q-sr5" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="Agb-y0-SU4"/>
-                            <constraint firstItem="kMU-Bn-cSU" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="EqR-7c-m7J"/>
-                            <constraint firstItem="wpf-NL-V3b" firstAttribute="top" secondItem="PiC-BR-27n" secondAttribute="bottom" constant="29" id="Gj4-LB-ZEl"/>
-                            <constraint firstItem="atP-12-cja" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="QUx-K1-eeo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wpf-NL-V3b" secondAttribute="trailing" constant="19" id="WdC-7A-hOT"/>
-                            <constraint firstItem="PiC-BR-27n" firstAttribute="top" secondItem="kMU-Bn-cSU" secondAttribute="bottom" constant="26" id="al2-bT-8d9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kMU-Bn-cSU" secondAttribute="trailing" constant="19" id="eDG-hi-xYO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="atP-12-cja" secondAttribute="trailing" constant="19" id="eZk-hH-HZ0"/>
-                            <constraint firstItem="wpf-NL-V3b" firstAttribute="top" secondItem="PiC-BR-27n" secondAttribute="bottom" constant="29" id="gLs-z1-0Bf"/>
-                            <constraint firstItem="PiC-BR-27n" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="hRG-F7-XuA"/>
-                            <constraint firstItem="atP-12-cja" firstAttribute="top" secondItem="ksJ-1Q-sr5" secondAttribute="bottom" constant="26" id="pK5-Qt-qy3"/>
-                            <constraint firstItem="wpf-NL-V3b" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="qtY-Fz-dRz"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="VsZ-2e-eOw"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="folderLabel" destination="bQA-A1-WTd" id="hcH-CD-Zbq"/>
-                        <outlet property="login" destination="PiC-BR-27n" id="LtO-Ol-IRC"/>
-                        <outlet property="notes" destination="atP-12-cja" id="hJV-fT-Sy0"/>
-                        <outlet property="passWord" destination="wpf-NL-V3b" id="ovZ-Ah-1Yu"/>
-                        <outlet property="spTitle" destination="kMU-Bn-cSU" id="eYS-ao-TEL"/>
-                        <outlet property="url" destination="ksJ-1Q-sr5" id="OEc-o0-dbc"/>
+                        <outlet property="login" destination="eZX-0c-gDi" id="1pg-fT-qN3"/>
+                        <outlet property="passWord" destination="dc8-WS-t2R" id="oyf-0I-c2w"/>
+                        <outlet property="spTitle" destination="yrm-eD-pUw" id="c9c-L2-b8w"/>
+                        <outlet property="url" destination="k1Z-gc-1GT" id="7K9-ME-qxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
