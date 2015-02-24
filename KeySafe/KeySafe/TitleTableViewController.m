@@ -34,9 +34,9 @@
     
     for (SPStoreEntry *entrie in spEntries) {
         
-        if([self.spselectedEntries indexOfObject:entrie] == NSNotFound) {
+        if([self.spSelectedEntries indexOfObject:entrie] == NSNotFound) {
             
-            [self.spselectedEntries addObject:entrie];
+            [self.spSelectedEntries addObject:entrie];
         }
         
     }
@@ -80,14 +80,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.spselectedEntries.count;
+    return self.spSelectedEntries.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
     
-    SPStoreEntry *spEntry = self.spselectedEntries[indexPath.row];
+    SPStoreEntry *spEntry = self.spSelectedEntries[indexPath.row];
     
     cell.textLabel.text = spEntry.sptitle;
     
