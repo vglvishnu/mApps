@@ -35,7 +35,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" id="ZhT-BM-Khp"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="ZhT-BM-Khp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,25 +62,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="20" y="292" width="560" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Folder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQA-A1-WTd">
+                                <rect key="frame" x="31" y="99" width="539" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMU-Bn-cSU">
+                                <rect key="frame" x="26" y="141" width="539" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Login" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiC-BR-27n">
+                                <rect key="frame" x="26" y="197" width="539" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="PassWord" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-NL-V3b">
+                                <rect key="frame" x="26" y="256" width="539" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="url" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksJ-1Q-sr5">
+                                <rect key="frame" x="26" y="310" width="539" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Notes" translatesAutoresizingMaskIntoConstraints="NO" id="atP-12-cja">
+                                <rect key="frame" x="26" y="366" width="539" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
-                            <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
+                            <constraint firstItem="ksJ-1Q-sr5" firstAttribute="top" secondItem="wpf-NL-V3b" secondAttribute="bottom" constant="24" id="0bI-rm-Ofc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ksJ-1Q-sr5" secondAttribute="trailing" constant="19" id="4GE-Ra-rbn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PiC-BR-27n" secondAttribute="trailing" constant="19" id="7o1-dC-h5d"/>
+                            <constraint firstItem="ksJ-1Q-sr5" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="Agb-y0-SU4"/>
+                            <constraint firstItem="kMU-Bn-cSU" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="EqR-7c-m7J"/>
+                            <constraint firstItem="wpf-NL-V3b" firstAttribute="top" secondItem="PiC-BR-27n" secondAttribute="bottom" constant="29" id="Gj4-LB-ZEl"/>
+                            <constraint firstItem="atP-12-cja" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="QUx-K1-eeo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wpf-NL-V3b" secondAttribute="trailing" constant="19" id="WdC-7A-hOT"/>
+                            <constraint firstItem="PiC-BR-27n" firstAttribute="top" secondItem="kMU-Bn-cSU" secondAttribute="bottom" constant="26" id="al2-bT-8d9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kMU-Bn-cSU" secondAttribute="trailing" constant="19" id="eDG-hi-xYO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="atP-12-cja" secondAttribute="trailing" constant="19" id="eZk-hH-HZ0"/>
+                            <constraint firstItem="wpf-NL-V3b" firstAttribute="top" secondItem="PiC-BR-27n" secondAttribute="bottom" constant="29" id="gLs-z1-0Bf"/>
+                            <constraint firstItem="PiC-BR-27n" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="hRG-F7-XuA"/>
+                            <constraint firstItem="atP-12-cja" firstAttribute="top" secondItem="ksJ-1Q-sr5" secondAttribute="bottom" constant="26" id="pK5-Qt-qy3"/>
+                            <constraint firstItem="wpf-NL-V3b" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="10" id="qtY-Fz-dRz"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="folderLabel" destination="bQA-A1-WTd" id="hcH-CD-Zbq"/>
+                        <outlet property="login" destination="PiC-BR-27n" id="LtO-Ol-IRC"/>
+                        <outlet property="notes" destination="atP-12-cja" id="hJV-fT-Sy0"/>
+                        <outlet property="passWord" destination="wpf-NL-V3b" id="ovZ-Ah-1Yu"/>
+                        <outlet property="spTitle" destination="kMU-Bn-cSU" id="eYS-ao-TEL"/>
+                        <outlet property="url" destination="ksJ-1Q-sr5" id="OEc-o0-dbc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -162,27 +204,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Folder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wUf-Vz-pVv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Folder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wUf-Vz-pVv">
                                 <rect key="frame" x="29" y="95" width="543" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="leq-PW-IpJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="leq-PW-IpJ">
                                 <rect key="frame" x="29" y="148" width="543" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSt-Fi-8WO">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSt-Fi-8WO">
                                 <rect key="frame" x="29" y="202" width="543" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Db-De-0Cn">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Db-De-0Cn">
                                 <rect key="frame" x="29" y="255" width="543" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" indicatorStyle="black" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOo-6S-7h0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOo-6S-7h0">
                                 <rect key="frame" x="29" y="364" width="538" height="189"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
@@ -196,7 +238,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" keyboardAppearance="alert"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-xG-AH8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-xG-AH8">
                                 <rect key="frame" x="27" y="312" width="543" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

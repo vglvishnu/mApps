@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "SPStoreEntry.h"
 
 @interface DetailViewController ()
 
@@ -27,8 +28,14 @@
 
 - (void)configureView {
     // Update the user interface for the detail item.
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.entry) {
+        //self.detailDescriptionLabel.text = [self.detailItem description];
+        self.folderLabel.text = self.entry.folderName;
+        self.spTitle.text     = self.entry.sptitle;
+        self.login.text       = self.entry.login;
+        self.passWord.text    = self.entry.passWord;
+        self.url.text         = self.entry.url;
+        self.notes.text       = self.entry.notes;
     }
 }
 

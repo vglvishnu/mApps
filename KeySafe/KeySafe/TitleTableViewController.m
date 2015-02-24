@@ -8,9 +8,10 @@
 
 #import "TitleTableViewController.h"
 #import "SPDatasebaseDAO.h"
+#import "DetailViewController.h"
 
 @interface TitleTableViewController ()
-
+ @property DetailViewController *detailViewController;
 
 
 @end
@@ -129,14 +130,15 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    self.detailViewController = (DetailViewController  *)[[segue destinationViewController] topViewController];
+    [self.detailViewController setEntry:self.spSelectedEntries[indexPath.row]];
 }
-*/
+
 
 @end
