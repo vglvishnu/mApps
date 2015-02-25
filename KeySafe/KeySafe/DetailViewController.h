@@ -28,6 +28,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *url;
 
+- (IBAction) unwindToList:(UIStoryboardSegue *) segue;
+
 
 @end
 

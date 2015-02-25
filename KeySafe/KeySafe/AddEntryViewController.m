@@ -32,7 +32,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self configureView];
+}
+
+- (void)configureView {
+    // Update the user interface for the detail item.
+    if (self.keyEntry) {
+        //self.detailDescriptionLabel.text = [self.detailItem description];
+        
+        self.folderName.text =  self.keyEntry.folderName;
+        self.spTitle.text     = self.keyEntry.sptitle;
+        self.login.text       = self.keyEntry.login;
+        self.passWord.text    = self.keyEntry.passWord;
+        self.url.text         = self.keyEntry.url;
+        self.notes.text       = self.keyEntry.notes;
+        
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

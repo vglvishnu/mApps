@@ -48,7 +48,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkp-19-O35" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1992" y="112"/>
+            <point key="canvasLocation" x="1878" y="144"/>
         </scene>
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
@@ -137,7 +137,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="VsZ-2e-eOw"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="VsZ-2e-eOw">
+                            <connections>
+                                <segue destination="VfQ-Xs-GrY" kind="show" identifier="showEdit" id="C4i-CB-x4j"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="folderLabel" destination="bQA-A1-WTd" id="hcH-CD-Zbq"/>
@@ -315,7 +319,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYE-tX-L6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lRE-hb-WFY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2601" y="-630"/>
+            <point key="canvasLocation" x="3257" y="720"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -371,5 +375,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ZhT-BM-Khp"/>
+        <segue reference="C4i-CB-x4j"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "SPStoreEntry.h"
+#import "AddEntryViewController.h"
 
 @interface DetailViewController ()
 
@@ -49,6 +50,28 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)unwindToList:(UIStoryboardSegue *) segue{
+    
+    AddEntryViewController *addSource = [segue sourceViewController];
+    
+    if ( addSource.keyEntry) {
+        NSLog(@"In detail view Controller");
+  
+        
+    }
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // To populate the screen
+    NSLog(@"In detail view Controller");
+    
+    AddEntryViewController  *addController = (AddEntryViewController  *)[segue destinationViewController] ;
+    
+    [addController setKeyEntry:self.entry];
+    [self configureView];
 }
 
 @end
