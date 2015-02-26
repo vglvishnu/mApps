@@ -77,7 +77,7 @@
     NSLog(@"Entering getEntriesFromDB");
     if(sqlite3_open(dbpath,&_storePassDB )== SQLITE_OK) {
         
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT FOLDERNAME,SPTITLE,LOGIN,PASSWORD,URL,NOTES FROM SPENTRY" ];
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT FOLDERNAME,SPTITLE,LOGIN,PASSWORD,URL,NOTES,ID FROM SPENTRY" ];
         const char *quert_stmt = [querySQL UTF8String];
         
         if(sqlite3_prepare_v2(_storePassDB, quert_stmt, -1, &statement, NULL) == SQLITE_OK) {
@@ -105,11 +105,15 @@
                                                                                                                                                                                                                                                                                                                                                statement, 4)] notes:[[NSString alloc]
                                                                                                                                                                                                                                                                                                                                                                      initWithUTF8String:
                                                                                                                                                                                                                                                                                                                                                                      (const char *) sqlite3_column_text(
-                                                                                                                                                                                                                                                                                                                                                                                                        statement, 5)]];
+                                                                                                                                                                                                                                                                                                                                                                                                        statement, 5)]  keyid:[[NSNumber alloc]
+                                                                                                                                                                                                                                                                                                                                                                                                                                initWithInteger:
+                                                                                                                                                                                                                                                                                                                                                                                                                               sqlite3_column_int(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  statement, 6)]];
                 
                 
                 
                 NSLog(@"Entry value title %s", sqlite3_column_text(statement, 1));
+                NSLog(@"Entry value id %d", sqlite3_column_int(statement, 6));
                 
                 [self.spEntries addObject:spEntry];
                 

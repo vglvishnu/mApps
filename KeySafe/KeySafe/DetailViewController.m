@@ -36,7 +36,7 @@
         self.login.text       = [@"Login   :" stringByAppendingString:self.entry.login ];
         self.passWord.text    = [@"PassWord:" stringByAppendingString:self.entry.passWord];
         self.url.text         = [@"URL     :" stringByAppendingString:self.entry.url];
-        
+        NSLog(@"id= %@",self.entry.keyid);
         
     }
 }
@@ -57,9 +57,15 @@
     AddEntryViewController *addSource = [segue sourceViewController];
     
     if ( addSource.keyEntry) {
-        NSLog(@"In detail view Controller");
-  
+        NSLog(@"In detail view Controller unwindToList");
+        self.entry.folderName = addSource.keyEntry.folderName;
+        self.entry.sptitle = addSource.keyEntry.sptitle;
+        self.entry.passWord = addSource.keyEntry.passWord;
+        self.entry.url = addSource.keyEntry.url;
+        self.entry.notes = addSource.keyEntry.notes;
         
+        [self configureView];
+        NSLog(@"here is the id %@",self.entry.keyid);
     }
     
 }

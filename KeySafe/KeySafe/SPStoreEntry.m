@@ -11,7 +11,7 @@
 @implementation SPStoreEntry
 
 
--(id) initSPEntryWithEntry:(NSString *) folderName  sptitle:(NSString *)sptitle login:(NSString *)login passWord:(NSString *)passWord url:(NSString *)url notes:(NSString *) notes {
+-(id) initSPEntryWithEntry:(NSString *) folderName  sptitle:(NSString *)sptitle login:(NSString *)login passWord:(NSString *)passWord url:(NSString *)url notes:(NSString *) notes keyid:(NSNumber *) keyid{
    
     self= [super init];
     
@@ -22,6 +22,8 @@
         _passWord   = passWord;
         _url        = url;
         _notes      = notes;
+        _keyid      = keyid;
+        
         
     }
     
@@ -30,10 +32,10 @@
 }
 
 
-+(instancetype) createSPEntry:(NSString *) folderName  sptitle:(NSString *)sptitle login:(NSString *)login passWord:(NSString *)passWord url:(NSString *)url notes:(NSString *) notes {
++(instancetype) createSPEntry:(NSString *) folderName  sptitle:(NSString *)sptitle login:(NSString *)login passWord:(NSString *)passWord url:(NSString *)url notes:(NSString *) notes keyid:(NSNumber *) keyid{
     
     
-    return [[SPStoreEntry alloc]initSPEntryWithEntry:folderName sptitle:sptitle login:login passWord:passWord url:url notes:notes];
+    return [[SPStoreEntry alloc]initSPEntryWithEntry:folderName sptitle:sptitle login:login passWord:passWord url:url notes:notes keyid:keyid];
 }
 
 

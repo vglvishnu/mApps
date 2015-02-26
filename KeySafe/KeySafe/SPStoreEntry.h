@@ -16,9 +16,10 @@
 @property NSString *passWord;
 @property NSString *url;
 @property NSString *notes;
+@property(readonly)  NSNumber *keyid;
 
--(id) initSPEntryWithEntry:(NSString *) folderName  sptitle:(NSString *)sptitle login:(NSString *)login passWord:(NSString *)passWord url:(NSString *)url notes:(NSString *) notes;
+-(id) initSPEntryWithEntry:(NSString *) folderName  sptitle:(NSString *)sptitle login:(NSString *)login passWord:(NSString *)passWord url:(NSString *)url notes:(NSString *) notes keyid:(NSNumber *) keyid;
 
-+(instancetype) createSPEntry:(NSString *) folderName  sptitle:(NSString *)sptitle login:(NSString *)login passWord:(NSString *)passWord url:(NSString *)url notes:(NSString *) notes;
++(instancetype) createSPEntry:(NSString *) folderName  sptitle:(NSString *)sptitle login:(NSString *)login passWord:(NSString *)passWord url:(NSString *)url notes:(NSString *) notes keyid:(NSNumber *) keyid;
 
 @end
