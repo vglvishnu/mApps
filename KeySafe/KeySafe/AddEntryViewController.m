@@ -68,7 +68,7 @@
     
     if(self.spTitle.text.length > 0 && self.folderName.text.length > 0 ) {
         
-        self.keyEntry = [[SPStoreEntry alloc] init];
+        //self.keyEntry = [[SPStoreEntry alloc] init];
         
         self.keyEntry.folderName = self.folderName.text;
         self.keyEntry.sptitle    = self.spTitle.text;

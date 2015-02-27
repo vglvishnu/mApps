@@ -9,9 +9,11 @@
 #import "DetailViewController.h"
 #import "SPStoreEntry.h"
 #import "AddEntryViewController.h"
+#import "SPDatasebaseDAO.h"
 
 @interface DetailViewController ()
 
+@property SPDatasebaseDAO *spDAO;
 @end
 
 @implementation DetailViewController
@@ -44,6 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.spDAO = [[SPDatasebaseDAO alloc] init];
     [self configureView];
 }
 
@@ -65,7 +68,10 @@
         self.entry.notes = addSource.keyEntry.notes;
         
         [self configureView];
+        
         NSLog(@"here is the id %@",self.entry.keyid);
+        [self.spDAO updateSPEntryToDB:self.entry];
+        
     }
     
 }

@@ -193,6 +193,33 @@
 
 }
 
+-(void) updateSPEntryToDB:(SPStoreEntry *) spEntry {
+    
+    
+    sqlite3_stmt *statment;
+    const char *dbpath = [_databasePath UTF8String];
+    if ( sqlite3_open(dbpath,&_storePassDB) == SQLITE_OK) {
+        
+        NSString *updateSQL = [NSString stringWithFormat:@"UPDATE  SPENTRY  SET (FOLDERNAME,SPTITLE,LOGIN,PASSWORD,URL,NOTES) = (\"%@\", \"%@\", \"%@\",\"%@\", \"%@\", \"%@\") WHERE ID =%@",
+                               spEntry.folderName, spEntry.sptitle, spEntry.login,spEntry.passWord,spEntry.url,spEntry.notes,spEntry.keyid];
+        
+        const char * update_stmt = [updateSQL UTF8String];
+        sqlite3_prepare_v2(_storePassDB, update_stmt, -1, &statment, NULL);
+        
+        if(sqlite3_step(statment) == SQLITE_DONE) {
+            
+            NSLog(@"Update to database success");
+        } else {
+            NSLog(@"Failed to Update in database");
+        }
+        
+        sqlite3_finalize(statment);
+        sqlite3_close(_storePassDB);
+        
+    }
+    
+}
+
 -(void) updateSPFolderObject:(NSString *) spfolder {
     
     if(self.spFolders.count == 0) {

@@ -18,5 +18,6 @@
 -(NSMutableArray *) getEntriesFromDB ;
 -(void) insertSPEntryToDB:(SPStoreEntry *) spEntry;
 -(NSMutableArray *) getFoldersFromDB ;
+-(void) updateSPEntryToDB:(SPStoreEntry *) spEntry;
 
 @end
