@@ -36,12 +36,17 @@
     return self;
 }
 
--(void) createDBIfNotExists {
+-(void) getDatabasePath{
     
     _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     _docDir   = _dirPaths[0];
     
     _databasePath = [[NSString alloc] initWithString:[_docDir stringByAppendingPathComponent:@"storepass.db"]];
+}
+
+-(void) createDBIfNotExists {
+    
+    [self getDatabasePath];
     
     NSFileManager *fileMgr = [NSFileManager defaultManager];
     
@@ -195,14 +200,16 @@
 
 -(void) updateSPEntryToDB:(SPStoreEntry *) spEntry {
     
-    
+    [self getDatabasePath];
     sqlite3_stmt *statment;
     const char *dbpath = [_databasePath UTF8String];
     if ( sqlite3_open(dbpath,&_storePassDB) == SQLITE_OK) {
         
-        NSString *updateSQL = [NSString stringWithFormat:@"UPDATE  SPENTRY  SET (FOLDERNAME,SPTITLE,LOGIN,PASSWORD,URL,NOTES) = (\"%@\", \"%@\", \"%@\",\"%@\", \"%@\", \"%@\") WHERE ID =%@",
-                               spEntry.folderName, spEntry.sptitle, spEntry.login,spEntry.passWord,spEntry.url,spEntry.notes,spEntry.keyid];
+
+
+        NSString *updateSQL  =[NSString stringWithFormat:@"UPDATE  SPENTRY  SET FOLDERNAME = '%@', SPTITLE = '%@', LOGIN = '%@', PASSWORD = '%@', URL = '%@', NOTES = '%@' WHERE ID ='%@'", spEntry.folderName , spEntry.sptitle , spEntry.login , spEntry.passWord , spEntry.url ,  spEntry.notes , spEntry.keyid ];
         
+      
         const char * update_stmt = [updateSQL UTF8String];
         sqlite3_prepare_v2(_storePassDB, update_stmt, -1, &statment, NULL);
         
@@ -210,7 +217,7 @@
             
             NSLog(@"Update to database success");
         } else {
-            NSLog(@"Failed to Update in database");
+            NSLog(@"Failed to Update in database with error %s", sqlite3_errmsg(_storePassDB));
         }
         
         sqlite3_finalize(statment);

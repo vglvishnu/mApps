@@ -92,6 +92,7 @@
         self.titleViewController = (TitleTableViewController  *)[[segue destinationViewController] topViewController];
         [self.titleViewController setFolderName:folder];
         [self.titleViewController setSpAllEntries:self.keyEntries];
+        [self.titleViewController setSpDAO:_dbdao];
         NSPredicate *folderpredicate = [NSPredicate predicateWithFormat:@"folderName = %@", folder];
 
      

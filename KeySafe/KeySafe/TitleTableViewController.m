@@ -138,6 +138,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     self.detailViewController = (DetailViewController  *)[[segue destinationViewController] topViewController];
     [self.detailViewController setEntry:self.spSelectedEntries[indexPath.row]];
+    [self.detailViewController setSpDAO:self.spDAO];
 }
 
 

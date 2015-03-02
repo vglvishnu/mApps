@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SPStoreEntry.h"
+#import "SPDatasebaseDAO.h"
 
 
 @interface DetailViewController : UIViewController
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) id detailItem;
 
 @property SPStoreEntry *entry;
+@property SPDatasebaseDAO *spDAO;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
@@ -29,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *url;
 
 - (IBAction) unwindToList:(UIStoryboardSegue *) segue;
+
 
 
 @end

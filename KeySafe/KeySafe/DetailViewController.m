@@ -13,7 +13,7 @@
 
 @interface DetailViewController ()
 
-@property SPDatasebaseDAO *spDAO;
+
 @end
 
 @implementation DetailViewController
@@ -58,7 +58,7 @@
 - (IBAction)unwindToList:(UIStoryboardSegue *) segue{
     
     AddEntryViewController *addSource = [segue sourceViewController];
-    
+    NSLog(@"here is the id %@ at DetailViewController",self.entry.keyid);
     if ( addSource.keyEntry) {
         NSLog(@"In detail view Controller unwindToList");
         self.entry.folderName = addSource.keyEntry.folderName;
