@@ -76,7 +76,7 @@
 
 
 -(NSMutableArray *) getEntriesFromDB {
-    
+    [self getDatabasePath];
     const char *dbpath = [_databasePath UTF8String];
     sqlite3_stmt *statement;
     NSLog(@"Entering getEntriesFromDB");
@@ -136,7 +136,7 @@
 
 
 -(NSMutableArray *) getFoldersFromDB {
-    
+    [self getDatabasePath];
     const char *dbpath = [_databasePath UTF8String];
     sqlite3_stmt *statement;
     NSLog(@"Entering readFromStoreDB");
@@ -174,7 +174,7 @@
 
 -(void) insertSPEntryToDB:(SPStoreEntry *) spEntry {
     
-    
+    [self getDatabasePath];
     sqlite3_stmt *statment;
     const char *dbpath = [_databasePath UTF8String];
     if ( sqlite3_open(dbpath,&_storePassDB) == SQLITE_OK) {
