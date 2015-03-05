@@ -9,6 +9,7 @@
 #import "TitleTableViewController.h"
 #import "SPDatasebaseDAO.h"
 #import "DetailViewController.h"
+#import "AddEntryViewController.h"
 
 @interface TitleTableViewController ()
  @property DetailViewController *detailViewController;
@@ -135,11 +136,33 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    if ([[segue identifier] isEqualToString:@"addTitle"]) {
+        //TODO:
+    }
+    
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     self.detailViewController = (DetailViewController  *)[[segue destinationViewController] topViewController];
     [self.detailViewController setEntry:self.spSelectedEntries[indexPath.row]];
     [self.detailViewController setSpDAO:self.spDAO];
+    
+    
 }
 
+- (IBAction) unwindToList:(UIStoryboardSegue *) segue{
+    
+    AddEntryViewController *addSource = [segue sourceViewController];
+    NSLog(@"unwindToList TitleViewController");
+    NSLog(@"addSource.keyEntry %@",addSource.keyEntry);
+    if ( addSource.keyEntry) {
+        NSLog(@"Insert in entry Table");
+        [self.spAllEntries addObject:addSource.keyEntry];
+        [self.spSelectedEntries addObject:addSource.keyEntry];
+       //TODO:
+        
+    }
+    
+}
 
 @end

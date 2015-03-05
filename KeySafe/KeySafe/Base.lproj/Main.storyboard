@@ -44,7 +44,13 @@
                             <outlet property="delegate" destination="q19-Dq-m7X" id="qFy-TE-xXb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Titles" id="La3-Kh-wZR"/>
+                    <navigationItem key="navigationItem" title="Titles" id="La3-Kh-wZR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vB6-aD-q3O">
+                            <connections>
+                                <segue destination="VfQ-Xs-GrY" kind="show" identifier="addTitle" id="ien-XP-7iB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkp-19-O35" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2370" y="895"/>
+            <point key="canvasLocation" x="2098" y="1093"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
@@ -319,7 +325,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYE-tX-L6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lRE-hb-WFY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3257" y="720"/>
+            <point key="canvasLocation" x="2825" y="376"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -374,7 +380,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ien-XP-7iB"/>
         <segue reference="ZhT-BM-Khp"/>
-        <segue reference="C4i-CB-x4j"/>
     </inferredMetricsTieBreakers>
 </document>

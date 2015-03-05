@@ -19,5 +19,6 @@
 @property SPDatasebaseDAO *spDAO;
 
 - (void)setFolderName:(id)newFolderName;
+- (IBAction) unwindToList:(UIStoryboardSegue *) segue;
 
 @end
