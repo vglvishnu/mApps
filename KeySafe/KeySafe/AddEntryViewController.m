@@ -70,6 +70,10 @@
         
         //self.keyEntry = [[SPStoreEntry alloc] init];
         
+        if(self.keyEntry == nil){
+            self.keyEntry = [[SPStoreEntry alloc] init];
+        }
+        
         self.keyEntry.folderName = self.folderName.text;
         self.keyEntry.sptitle    = self.spTitle.text;
         self.keyEntry.login      = self.login.text;

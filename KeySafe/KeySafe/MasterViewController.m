@@ -140,7 +140,8 @@
 - (IBAction) unwindToList:(UIStoryboardSegue *) segue{
     
     AddEntryViewController *addSource = [segue sourceViewController];
-    
+     NSLog(@"unwindToList MasterViewController");
+     NSLog(@"addSource.keyEntry %@",addSource.keyEntry);
     if ( addSource.keyEntry) {
         NSLog(@"Insert in entry Table");
         
