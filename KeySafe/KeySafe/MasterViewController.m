@@ -97,7 +97,7 @@
 
      
         //[self.titleViewController setDbdao:self.dbdao];
-        [self.titleViewController setSpSelectedEntries:[self.keyEntries filteredArrayUsingPredicate:folderpredicate]];
+        [self.titleViewController setSpSelectedEntries:(NSMutableArray *)[self.keyEntries filteredArrayUsingPredicate:folderpredicate]];
         //controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
        // controller.navigationItem.leftItemsSupplementBackButton = YES;
     }

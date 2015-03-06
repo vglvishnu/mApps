@@ -12,9 +12,8 @@
 #import "AddEntryViewController.h"
 
 @interface TitleTableViewController ()
- @property DetailViewController *detailViewController;
-
-
+   @property DetailViewController *detailViewController;
+   @property AddEntryViewController *addEntryViewController;
 @end
 
 @implementation TitleTableViewController
@@ -139,13 +138,18 @@
     
     
     if ([[segue identifier] isEqualToString:@"addTitle"]) {
-        //TODO:
+        self.addEntryViewController = (AddEntryViewController  *)[segue destinationViewController] ;
+        
+        SPStoreEntry *keyEntry = [SPStoreEntry createSPEntry:self.folderName sptitle:nil login:nil passWord:nil url:nil notes:nil keyid:nil];
+        [self.addEntryViewController setKeyEntry:keyEntry];
     }
     
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     self.detailViewController = (DetailViewController  *)[[segue destinationViewController] topViewController];
     [self.detailViewController setEntry:self.spSelectedEntries[indexPath.row]];
     [self.detailViewController setSpDAO:self.spDAO];
+    }
     
     
 }
@@ -158,9 +162,14 @@
     if ( addSource.keyEntry) {
         NSLog(@"Insert in entry Table");
         [self.spAllEntries addObject:addSource.keyEntry];
-        [self.spSelectedEntries addObject:addSource.keyEntry];
-       //TODO:
+        NSLog(@"Count= %lu",(unsigned long)self.spSelectedEntries.count);
+         //TODO: to be fixed
+        [self updateSpSelectedEntriesCollection:(NSArray *)addSource.keyEntry];
         
+        
+      
+        NSLog(@"Count= %lu",(unsigned long)self.spSelectedEntries.count);
+
     }
     
 }
