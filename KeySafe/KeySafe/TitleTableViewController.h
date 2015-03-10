@@ -14,8 +14,8 @@
 
 @property (strong, nonatomic) id folderName;
 //@property SPDatasebaseDAO *dbdao;
-@property  NSMutableArray *spAllEntries;
-@property  NSMutableArray *spSelectedEntries;
+@property (retain) NSMutableArray *spAllEntries;
+@property (retain) NSMutableArray *spSelectedEntries;
 @property SPDatasebaseDAO *spDAO;
 
 - (void)setFolderName:(id)newFolderName;

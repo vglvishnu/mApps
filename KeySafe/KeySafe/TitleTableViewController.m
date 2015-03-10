@@ -14,6 +14,7 @@
 @interface TitleTableViewController ()
    @property DetailViewController *detailViewController;
    @property AddEntryViewController *addEntryViewController;
+   
 @end
 
 @implementation TitleTableViewController
@@ -164,11 +165,13 @@
         [self.spAllEntries addObject:addSource.keyEntry];
         NSLog(@"Count= %lu",(unsigned long)self.spSelectedEntries.count);
          //TODO: to be fixed
-        [self updateSpSelectedEntriesCollection:(NSArray *)addSource.keyEntry];
+        NSPredicate *folderpredicate = [NSPredicate predicateWithFormat:@"folderName = %@", self.folderName];
+        [self setSpSelectedEntries:(NSMutableArray *)[self.spAllEntries filteredArrayUsingPredicate:folderpredicate]];
         
-        
-      
         NSLog(@"Count= %lu",(unsigned long)self.spSelectedEntries.count);
+        [self.tableView reloadData];
+        [self.spDAO insertSPEntryToDB:addSource.keyEntry];
+        
 
     }
     
