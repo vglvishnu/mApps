@@ -48,6 +48,9 @@
     [_dbdao createDBIfNotExists];
     [self.keyEntries addObjectsFromArray:[_dbdao getEntriesFromDB]];
     [self.spfolders addObjectsFromArray:[_dbdao getFoldersFromDB]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
 
     // Do any additional setup after loading the view, typically from a nib.
    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
