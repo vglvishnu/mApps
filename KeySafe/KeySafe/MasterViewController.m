@@ -48,9 +48,19 @@
     [_dbdao createDBIfNotExists];
     [self.keyEntries addObjectsFromArray:[_dbdao getEntriesFromDB]];
     [self.spfolders addObjectsFromArray:[_dbdao getFoldersFromDB]];
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
-    self.tableView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+//    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+//    [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor greenColor];
+    self.navigationController.navigationBar.tintColor = [UIColor greenColor];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSMutableDictionary dictionaryWithObjectsAndKeys:[UIFont
+                                                                                                     fontWithName:@"HelveticaNeue-Light" size:20], NSFontAttributeName,
+                                                          [UIColor greenColor], NSForegroundColorAttributeName, nil]];
+    self.tableView.backgroundColor = [UIColor grayColor];
+    
 
     // Do any additional setup after loading the view, typically from a nib.
    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -122,7 +132,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MasterCell" forIndexPath:indexPath];
 
     NSDate *object = self.spfolders[indexPath.row];
+    cell.backgroundColor = [UIColor grayColor];
     cell.textLabel.text = [object description];
+    cell.contentView.backgroundColor = [UIColor grayColor];
+    cell.textLabel.backgroundColor =[UIColor grayColor];
     return cell;
 }
 

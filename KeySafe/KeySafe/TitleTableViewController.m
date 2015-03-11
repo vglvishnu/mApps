@@ -54,7 +54,10 @@
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
     [[UINavigationBar appearance]
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor greenColor]}];
-     self.tableView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+     
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor greenColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor greenColor];
+        self.tableView.backgroundColor = [UIColor grayColor];
 //    NSLog(@"Title view Controller");
     //self.dbdao = [[SPDatasebaseDAO alloc] init];
 //    self.spAllEntries  =[[NSMutableArray alloc] init];
@@ -97,7 +100,11 @@
     SPStoreEntry *spEntry = self.spSelectedEntries[indexPath.row];
     
     cell.textLabel.text = spEntry.sptitle;
-    cell.textLabel.textColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+    
+    cell.backgroundColor = [UIColor grayColor];
+    cell.contentView.backgroundColor = [UIColor grayColor];
+    cell.textLabel.backgroundColor =[UIColor grayColor];
+    cell.textLabel.textColor = [UIColor greenColor];
     
     return cell;
 }

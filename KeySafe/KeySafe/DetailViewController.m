@@ -51,7 +51,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+    self.view.backgroundColor = [UIColor grayColor];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor greenColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor greenColor];
+
     self.spDAO = [[SPDatasebaseDAO alloc] init];
     [self configureView];
 }
