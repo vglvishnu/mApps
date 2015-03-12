@@ -34,15 +34,31 @@
     if (self.entry) {
         //self.detailDescriptionLabel.text = [self.detailItem description];
         self.folderLabel.textColor = [UIColor greenColor];
-        self.folderLabel.text = [@"Folder  :" stringByAppendingString:self.entry.folderName];
+//        self.folderLabel.text = [[[NSString stringWithFormat:@"%@%*s", @"Folder",20 - @"Folder".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.folderName];
+        self.folderLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        self.folderLabel.numberOfLines = 0;
+        self.folderLabel.text = [[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName];
+        CGSize labelSize = [self.folderLabel.text sizeWithAttributes:@{NSFontAttributeName:self.folderLabel.font}];
+        self.folderLabel.frame = CGRectMake(
+                                 self.folderLabel.frame.origin.x, self.folderLabel.frame.origin.y,
+                                 self.folderLabel.frame.size.width, labelSize.height);
+        UITextView *folderTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        [folderTextView setFrame:CGRectMake(20, 50, 320.0, 200)];
+        [folderTextView setText:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName]];
         self.spTitle.textColor = [UIColor greenColor];
-        self.spTitle.text     = [@"Title   :" stringByAppendingString:self.entry.sptitle];
+        self.spTitle.text = [[[NSString stringWithFormat:@"%@%*s", @"Title",20 - @"Title".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.sptitle];
+        
+        //self.spTitle.text     = [@"Title   :" stringByAppendingString:self.entry.sptitle];
         self.login.textColor = [UIColor greenColor];
-        self.login.text       = [@"Login   :" stringByAppendingString:self.entry.login ];
+        self.login.text = [[[NSString stringWithFormat:@"%@%*s", @"Login",20 - @"Login".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.login];
+       // self.login.text       = [@"Login   :" stringByAppendingString:self.entry.login ];
         self.passWord.textColor = [UIColor greenColor];
-        self.passWord.text    = [@"PassWord:" stringByAppendingString:self.entry.passWord];
+        self.passWord.text = [[[NSString stringWithFormat:@"%@%*s", @"Secret",20 - @"Secret".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.passWord];
+       // self.passWord.text    = [@"Secret  :" stringByAppendingString:self.entry.passWord];
         self.url.textColor = [UIColor greenColor];
-        self.url.text         = [@"URL     :" stringByAppendingString:self.entry.url];
+        self.url.text = [[[NSString stringWithFormat:@"%@%*s", @"url",20 - @"url".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.url];
+
+        //self.url.text         = [@"url     :" stringByAppendingString:self.entry.url];
         NSLog(@"id= %@",self.entry.keyid);
         
     }

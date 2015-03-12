@@ -12,6 +12,7 @@
 #import "SPStoreEntry.h"
 #import "SPDatasebaseDAO.h"
 #import "TitleTableViewController.h"
+#define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
 @interface MasterViewController ()
 
@@ -53,12 +54,15 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor greenColor];
-    self.navigationController.navigationBar.tintColor = [UIColor greenColor];
+    self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
+
+    self.navigationController.navigationBar.tintColor = Rgb2UIColor(255, 253, 208);
+;
     
     [[UINavigationBar appearance] setTitleTextAttributes:[NSMutableDictionary dictionaryWithObjectsAndKeys:[UIFont
                                                                                                      fontWithName:@"HelveticaNeue-Light" size:20], NSFontAttributeName,
-                                                          [UIColor greenColor], NSForegroundColorAttributeName, nil]];
+                                                          Rgb2UIColor(255, 253, 208)
+, NSForegroundColorAttributeName, nil]];
     self.tableView.backgroundColor = [UIColor grayColor];
     
 
@@ -136,6 +140,9 @@
     cell.textLabel.text = [object description];
     cell.contentView.backgroundColor = [UIColor grayColor];
     cell.textLabel.backgroundColor =[UIColor grayColor];
+    //cell.textLabel.textColor = [UIColor colorWithRed:(160/255.0) green:(200/255.0) blue:(150/255.0) alpha:1];
+    //cell.textLabel.textColor = [UIColor colorWithRed:(255/255.0) green:(253/255.0) blue:(208/255.0) alpha:1];
+    cell.textLabel.textColor = Rgb2UIColor(255, 253, 208);
     return cell;
 }
 
