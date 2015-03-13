@@ -16,10 +16,10 @@
 		274A90FE1A976FE90004561D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274A90FC1A976FE90004561D /* LaunchScreen.xib */; };
 		274A910A1A976FE90004561D /* KeySafeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91091A976FE90004561D /* KeySafeTests.m */; };
 		274A91141A9770450004561D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 274A91131A9770450004561D /* libsqlite3.dylib */; };
-		274A911B1A9771500004561D /* SPDatasebaseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91161A9771500004561D /* SPDatasebaseDAO.m */; };
-		274A911C1A9771500004561D /* SPStoreEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91181A9771500004561D /* SPStoreEntry.m */; };
-		274A911D1A9771500004561D /* TitleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A911A1A9771500004561D /* TitleTableViewController.m */; };
-		274A91201A9771CF0004561D /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A911F1A9771CF0004561D /* AddEntryViewController.m */; };
+		274A91291A98DCCD0004561D /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91221A98DCCD0004561D /* AddEntryViewController.m */; };
+		274A912A1A98DCCD0004561D /* SPDatasebaseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91241A98DCCD0004561D /* SPDatasebaseDAO.m */; };
+		274A912B1A98DCCD0004561D /* SPStoreEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91261A98DCCD0004561D /* SPStoreEntry.m */; };
+		274A912C1A98DCCD0004561D /* TitleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91281A98DCCD0004561D /* TitleTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,14 +49,14 @@
 		274A91081A976FE90004561D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		274A91091A976FE90004561D /* KeySafeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeySafeTests.m; sourceTree = "<group>"; };
 		274A91131A9770450004561D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		274A91151A9771500004561D /* SPDatasebaseDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPDatasebaseDAO.h; path = ../../StorePass/SPDatasebaseDAO.h; sourceTree = "<group>"; };
-		274A91161A9771500004561D /* SPDatasebaseDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPDatasebaseDAO.m; path = ../../StorePass/SPDatasebaseDAO.m; sourceTree = "<group>"; };
-		274A91171A9771500004561D /* SPStoreEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPStoreEntry.h; path = ../../StorePass/SPStoreEntry.h; sourceTree = "<group>"; };
-		274A91181A9771500004561D /* SPStoreEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPStoreEntry.m; path = ../../StorePass/SPStoreEntry.m; sourceTree = "<group>"; };
-		274A91191A9771500004561D /* TitleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleTableViewController.h; path = ../../StorePass/TitleTableViewController.h; sourceTree = "<group>"; };
-		274A911A1A9771500004561D /* TitleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleTableViewController.m; path = ../../StorePass/TitleTableViewController.m; sourceTree = "<group>"; };
-		274A911E1A9771CF0004561D /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEntryViewController.h; path = ../../StorePass/AddEntryViewController.h; sourceTree = "<group>"; };
-		274A911F1A9771CF0004561D /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEntryViewController.m; path = ../../StorePass/AddEntryViewController.m; sourceTree = "<group>"; };
+		274A91211A98DCCD0004561D /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEntryViewController.h; sourceTree = "<group>"; };
+		274A91221A98DCCD0004561D /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEntryViewController.m; sourceTree = "<group>"; };
+		274A91231A98DCCD0004561D /* SPDatasebaseDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPDatasebaseDAO.h; sourceTree = "<group>"; };
+		274A91241A98DCCD0004561D /* SPDatasebaseDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPDatasebaseDAO.m; sourceTree = "<group>"; };
+		274A91251A98DCCD0004561D /* SPStoreEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPStoreEntry.h; sourceTree = "<group>"; };
+		274A91261A98DCCD0004561D /* SPStoreEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPStoreEntry.m; sourceTree = "<group>"; };
+		274A91271A98DCCD0004561D /* TitleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTableViewController.h; sourceTree = "<group>"; };
+		274A91281A98DCCD0004561D /* TitleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,14 +100,14 @@
 		274A90E91A976FE90004561D /* KeySafe */ = {
 			isa = PBXGroup;
 			children = (
-				274A911E1A9771CF0004561D /* AddEntryViewController.h */,
-				274A911F1A9771CF0004561D /* AddEntryViewController.m */,
-				274A91151A9771500004561D /* SPDatasebaseDAO.h */,
-				274A91161A9771500004561D /* SPDatasebaseDAO.m */,
-				274A91171A9771500004561D /* SPStoreEntry.h */,
-				274A91181A9771500004561D /* SPStoreEntry.m */,
-				274A91191A9771500004561D /* TitleTableViewController.h */,
-				274A911A1A9771500004561D /* TitleTableViewController.m */,
+				274A91211A98DCCD0004561D /* AddEntryViewController.h */,
+				274A91221A98DCCD0004561D /* AddEntryViewController.m */,
+				274A91231A98DCCD0004561D /* SPDatasebaseDAO.h */,
+				274A91241A98DCCD0004561D /* SPDatasebaseDAO.m */,
+				274A91251A98DCCD0004561D /* SPStoreEntry.h */,
+				274A91261A98DCCD0004561D /* SPStoreEntry.m */,
+				274A91271A98DCCD0004561D /* TitleTableViewController.h */,
+				274A91281A98DCCD0004561D /* TitleTableViewController.m */,
 				274A90EE1A976FE90004561D /* AppDelegate.h */,
 				274A90EF1A976FE90004561D /* AppDelegate.m */,
 				274A90F11A976FE90004561D /* MasterViewController.h */,
@@ -248,13 +248,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274A911D1A9771500004561D /* TitleTableViewController.m in Sources */,
+				274A91291A98DCCD0004561D /* AddEntryViewController.m in Sources */,
 				274A90F01A976FE90004561D /* AppDelegate.m in Sources */,
-				274A911B1A9771500004561D /* SPDatasebaseDAO.m in Sources */,
+				274A912A1A98DCCD0004561D /* SPDatasebaseDAO.m in Sources */,
 				274A90F31A976FE90004561D /* MasterViewController.m in Sources */,
-				274A911C1A9771500004561D /* SPStoreEntry.m in Sources */,
-				274A91201A9771CF0004561D /* AddEntryViewController.m in Sources */,
 				274A90ED1A976FE90004561D /* main.m in Sources */,
+				274A912B1A98DCCD0004561D /* SPStoreEntry.m in Sources */,
+				274A912C1A98DCCD0004561D /* TitleTableViewController.m in Sources */,
 				274A90F61A976FE90004561D /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +448,7 @@
 				274A910F1A976FE90004561D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		274A91101A976FE90004561D /* Build configuration list for PBXNativeTarget "KeySafeTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +457,7 @@
 				274A91121A976FE90004561D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
