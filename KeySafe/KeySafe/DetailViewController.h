@@ -20,15 +20,7 @@
 @property SPStoreEntry *entry;
 @property SPDatasebaseDAO *spDAO;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *folderLabel;
-@property (weak, nonatomic) IBOutlet UILabel *spTitle;
-
-@property (weak, nonatomic) IBOutlet UILabel *login;
-@property (weak, nonatomic) IBOutlet UILabel *passWord;
-
-@property (weak, nonatomic) IBOutlet UILabel *url;
 
 - (IBAction) unwindToList:(UIStoryboardSegue *) segue;
 

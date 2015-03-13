@@ -10,6 +10,7 @@
 #import "SPStoreEntry.h"
 #import "AddEntryViewController.h"
 #import "SPDatasebaseDAO.h"
+#define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
 @interface DetailViewController ()
 
@@ -32,34 +33,81 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.entry) {
-        //self.detailDescriptionLabel.text = [self.detailItem description];
-        self.folderLabel.textColor = [UIColor greenColor];
-//        self.folderLabel.text = [[[NSString stringWithFormat:@"%@%*s", @"Folder",20 - @"Folder".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.folderName];
-        self.folderLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        self.folderLabel.numberOfLines = 0;
-        self.folderLabel.text = [[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName];
-        CGSize labelSize = [self.folderLabel.text sizeWithAttributes:@{NSFontAttributeName:self.folderLabel.font}];
-        self.folderLabel.frame = CGRectMake(
-                                 self.folderLabel.frame.origin.x, self.folderLabel.frame.origin.y,
-                                 self.folderLabel.frame.size.width, labelSize.height);
-        UITextView *folderTextView = [[UITextView alloc] initWithFrame:CGRectZero];
-        [folderTextView setFrame:CGRectMake(20, 50, 320.0, 200)];
-        [folderTextView setText:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName]];
-        self.spTitle.textColor = [UIColor greenColor];
-        self.spTitle.text = [[[NSString stringWithFormat:@"%@%*s", @"Title",20 - @"Title".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.sptitle];
         
-        //self.spTitle.text     = [@"Title   :" stringByAppendingString:self.entry.sptitle];
-        self.login.textColor = [UIColor greenColor];
-        self.login.text = [[[NSString stringWithFormat:@"%@%*s", @"Login",20 - @"Login".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.login];
-       // self.login.text       = [@"Login   :" stringByAppendingString:self.entry.login ];
-        self.passWord.textColor = [UIColor greenColor];
-        self.passWord.text = [[[NSString stringWithFormat:@"%@%*s", @"Secret",20 - @"Secret".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.passWord];
-       // self.passWord.text    = [@"Secret  :" stringByAppendingString:self.entry.passWord];
-        self.url.textColor = [UIColor greenColor];
-        self.url.text = [[[NSString stringWithFormat:@"%@%*s", @"url",20 - @"url".length,"" ] stringByAppendingString:@": "] stringByAppendingString:self.entry.url];
+        
+        UIFont *detailFont = [UIFont fontWithName:@"Helvetica Neue" size:17];
+        UIColor *creamColor = Rgb2UIColor(255, 253, 208);
+        UIColor *grayColor  = [UIColor grayColor];
+        
+        //TODO: Yet to figure out this
+        UITextView *dummyTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        dummyTextView.userInteractionEnabled = NO;
+        [dummyTextView setFrame:CGRectMake(31, 50, 290, 51)];
+        [dummyTextView setTextColor:creamColor];
+        [dummyTextView setBackgroundColor:grayColor];
+        [dummyTextView setFont:detailFont];
+        //[folderTextView sizeToFit];
+        [dummyTextView setText:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName]];
+       
+        UITextView *folderTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        folderTextView.userInteractionEnabled = NO;
+        [folderTextView setFrame:CGRectMake(31, 100, 290, 51)];
+        [folderTextView setTextColor:creamColor];
+        [folderTextView setBackgroundColor:grayColor];
+        [folderTextView setFont:detailFont];
+        //[folderTextView sizeToFit];
+        [folderTextView setText:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName]];
+       
+        
+        
+        UITextView *titleTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        titleTextView.userInteractionEnabled = NO;
+        [titleTextView setFrame:CGRectMake(31, 170, 290, 51)];
+        [titleTextView setTextColor:creamColor];
+        [titleTextView setBackgroundColor:grayColor];
+        [titleTextView setFont:detailFont];
+        //[folderTextView sizeToFit];
+        [titleTextView setText:[[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle]];
 
-        //self.url.text         = [@"url     :" stringByAppendingString:self.entry.url];
-        NSLog(@"id= %@",self.entry.keyid);
+        
+        UITextView *loginTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        loginTextView.userInteractionEnabled = NO;
+        [loginTextView setFrame:CGRectMake(31, 240, 290, 51)];
+        [loginTextView setTextColor:creamColor];
+        [loginTextView setBackgroundColor:grayColor];
+        [loginTextView setFont:detailFont];
+        //[folderTextView sizeToFit];
+        [loginTextView setText:[[@"Login" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.login]];
+        
+        
+        UITextView *passwordTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        passwordTextView.userInteractionEnabled = NO;
+        [passwordTextView setFrame:CGRectMake(31, 310, 290, 51)];
+        [passwordTextView setTextColor:creamColor];
+        [passwordTextView setBackgroundColor:grayColor];
+        [passwordTextView setFont:detailFont];
+        //[folderTextView sizeToFit];
+        [passwordTextView setText:[[@"Secret" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.passWord]];
+        
+       
+        
+        UITextView *urlTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        urlTextView.userInteractionEnabled = NO;
+        [urlTextView setFrame:CGRectMake(31, 380, 290, 51)];
+        [urlTextView setTextColor:creamColor];
+        [urlTextView setBackgroundColor:grayColor];
+        [urlTextView setFont:detailFont];
+        //[folderTextView sizeToFit];
+        [urlTextView setText:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
+        
+        
+        [[self view] addSubview:dummyTextView];
+        [[self view] addSubview:folderTextView];
+        [[self view] addSubview:titleTextView];
+        [[self view] addSubview:loginTextView];
+        [[self view] addSubview:passwordTextView];
+        [[self view] addSubview:urlTextView];
+        
         
     }
 }
@@ -68,8 +116,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor grayColor];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor greenColor];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor greenColor];
+    self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
+    self.navigationItem.leftBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
 
     self.spDAO = [[SPDatasebaseDAO alloc] init];
     [self configureView];
