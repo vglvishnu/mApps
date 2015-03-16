@@ -38,6 +38,7 @@
         UIFont *detailFont = [UIFont fontWithName:@"Helvetica Neue" size:17];
         UIColor *creamColor = Rgb2UIColor(255, 253, 208);
         UIColor *grayColor  = [UIColor grayColor];
+        NSString *boldFontName = [UIFont fontWithName:@"Helvetica-Bold" size:17];
         
         //TODO: Yet to figure out this
         UITextView *dummyTextView = [[UITextView alloc] initWithFrame:CGRectZero];
