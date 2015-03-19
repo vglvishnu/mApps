@@ -38,7 +38,8 @@
         UIFont *detailFont = [UIFont fontWithName:@"Helvetica Neue" size:17];
         UIColor *creamColor = Rgb2UIColor(255, 253, 208);
         UIColor *grayColor  = [UIColor grayColor];
-        NSString *boldFontName = [UIFont fontWithName:@"Helvetica-Bold" size:17];
+        UIColor *foregroundColor = [UIColor whiteColor];
+        UIFont *boldFontName = [UIFont fontWithName:@"Helvetica-Bold" size:17];
         
         //TODO: Yet to figure out this
         UITextView *dummyTextView = [[UITextView alloc] initWithFrame:CGRectZero];
@@ -49,6 +50,14 @@
         [dummyTextView setFont:detailFont];
         //[folderTextView sizeToFit];
         [dummyTextView setText:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName]];
+        
+        NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys:
+                               boldFontName, NSFontAttributeName,
+                               foregroundColor, NSForegroundColorAttributeName, nil];
+        
+        NSMutableAttributedString *displayAttrString = [[NSMutableAttributedString alloc] initWithString:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName] ];
+       
+        [displayAttrString setAttributes:attrs  range:NSMakeRange(0,@"Folder".length)];
        
         UITextView *folderTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         folderTextView.userInteractionEnabled = NO;
@@ -57,9 +66,12 @@
         [folderTextView setBackgroundColor:grayColor];
         [folderTextView setFont:detailFont];
         //[folderTextView sizeToFit];
-        [folderTextView setText:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName]];
+        [folderTextView setAttributedText:displayAttrString];
        
         
+        NSMutableAttributedString *displayAttrString1=[[NSMutableAttributedString alloc] initWithString: [[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle] ];
+       
+        [displayAttrString1 setAttributes:attrs range:NSMakeRange(0,@"Title".length)];
         
         UITextView *titleTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         titleTextView.userInteractionEnabled = NO;
@@ -68,9 +80,15 @@
         [titleTextView setBackgroundColor:grayColor];
         [titleTextView setFont:detailFont];
         //[folderTextView sizeToFit];
-        [titleTextView setText:[[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle]];
-
+       // [titleTextView setText:[[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle]];
+        [titleTextView setAttributedText:displayAttrString1];
         
+        
+        
+        NSMutableAttributedString *displayAttrString2=[[NSMutableAttributedString alloc] initWithString:[[@"Login" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.login] ];
+        
+        [displayAttrString2 setAttributes:attrs range:NSMakeRange(0,@"Login".length)];
+      
         UITextView *loginTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         loginTextView.userInteractionEnabled = NO;
         [loginTextView setFrame:CGRectMake(31, 240, 290, 51)];
@@ -78,9 +96,12 @@
         [loginTextView setBackgroundColor:grayColor];
         [loginTextView setFont:detailFont];
         //[folderTextView sizeToFit];
-        [loginTextView setText:[[@"Login" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.login]];
+        //[loginTextView setText:[[@"Login" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.login]];
+        [loginTextView setAttributedText:displayAttrString2];
         
         
+        NSMutableAttributedString *displayAttrString3=[[NSMutableAttributedString alloc] initWithString: [[@"Secret" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.passWord] ];
+        [displayAttrString3 setAttributes:attrs range:NSMakeRange(0,@"Secret".length)];
         UITextView *passwordTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         passwordTextView.userInteractionEnabled = NO;
         [passwordTextView setFrame:CGRectMake(31, 310, 290, 51)];
@@ -88,10 +109,14 @@
         [passwordTextView setBackgroundColor:grayColor];
         [passwordTextView setFont:detailFont];
         //[folderTextView sizeToFit];
-        [passwordTextView setText:[[@"Secret" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.passWord]];
-        
+        //[passwordTextView setText:[[@"Secret" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.passWord]];
+        [passwordTextView setAttributedText:displayAttrString3];
        
         
+        
+        
+        NSMutableAttributedString *displayAttrString4=[[NSMutableAttributedString alloc] initWithString:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
+        [displayAttrString4 setAttributes:attrs range:NSMakeRange(0,@"URL".length)];
         UITextView *urlTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         urlTextView.userInteractionEnabled = NO;
         [urlTextView setFrame:CGRectMake(31, 380, 290, 51)];
@@ -99,8 +124,8 @@
         [urlTextView setBackgroundColor:grayColor];
         [urlTextView setFont:detailFont];
         //[folderTextView sizeToFit];
-        [urlTextView setText:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
-        
+        //[urlTextView setText:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
+        [urlTextView setAttributedText:displayAttrString4];
         
         [[self view] addSubview:dummyTextView];
         [[self view] addSubview:folderTextView];
