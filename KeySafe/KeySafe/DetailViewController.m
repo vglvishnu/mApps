@@ -39,7 +39,9 @@
         UIColor *creamColor = Rgb2UIColor(255, 253, 208);
         UIColor *grayColor  = [UIColor grayColor];
         UIColor *foregroundColor = [UIColor whiteColor];
+        UIColor *defaultColor = Rgb2UIColor(255, 253, 208);
         UIFont *boldFontName = [UIFont fontWithName:@"Helvetica-Bold" size:17];
+        UIFont *italicFont = [UIFont fontWithName:@"Helvetica-BoldOblique" size:17];
         
         //TODO: Yet to figure out this
         UITextView *dummyTextView = [[UITextView alloc] initWithFrame:CGRectZero];
@@ -55,7 +57,11 @@
                                boldFontName, NSFontAttributeName,
                                foregroundColor, NSForegroundColorAttributeName, nil];
         
-        NSMutableAttributedString *displayAttrString = [[NSMutableAttributedString alloc] initWithString:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName] ];
+        NSDictionary *subattrs = [NSDictionary dictionaryWithObjectsAndKeys:
+                               italicFont, NSFontAttributeName,
+                               defaultColor, NSForegroundColorAttributeName, nil];
+        
+        NSMutableAttributedString *displayAttrString = [[NSMutableAttributedString alloc] initWithString:[[@"Folder" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.folderName] attributes:subattrs];
        
         [displayAttrString setAttributes:attrs  range:NSMakeRange(0,@"Folder".length)];
        
@@ -69,7 +75,7 @@
         [folderTextView setAttributedText:displayAttrString];
        
         
-        NSMutableAttributedString *displayAttrString1=[[NSMutableAttributedString alloc] initWithString: [[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle] ];
+        NSMutableAttributedString *displayAttrString1=[[NSMutableAttributedString alloc] initWithString: [[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle] attributes:subattrs];
        
         [displayAttrString1 setAttributes:attrs range:NSMakeRange(0,@"Title".length)];
         
@@ -85,7 +91,7 @@
         
         
         
-        NSMutableAttributedString *displayAttrString2=[[NSMutableAttributedString alloc] initWithString:[[@"Login" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.login] ];
+        NSMutableAttributedString *displayAttrString2=[[NSMutableAttributedString alloc] initWithString:[[@"Login" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.login] attributes:subattrs];
         
         [displayAttrString2 setAttributes:attrs range:NSMakeRange(0,@"Login".length)];
       
@@ -100,7 +106,7 @@
         [loginTextView setAttributedText:displayAttrString2];
         
         
-        NSMutableAttributedString *displayAttrString3=[[NSMutableAttributedString alloc] initWithString: [[@"Secret" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.passWord] ];
+        NSMutableAttributedString *displayAttrString3=[[NSMutableAttributedString alloc] initWithString: [[@"Secret" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.passWord] attributes:subattrs ];
         [displayAttrString3 setAttributes:attrs range:NSMakeRange(0,@"Secret".length)];
         UITextView *passwordTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         passwordTextView.userInteractionEnabled = NO;
@@ -115,7 +121,7 @@
         
         
         
-        NSMutableAttributedString *displayAttrString4=[[NSMutableAttributedString alloc] initWithString:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
+        NSMutableAttributedString *displayAttrString4=[[NSMutableAttributedString alloc] initWithString:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url] attributes:subattrs];
         [displayAttrString4 setAttributes:attrs range:NSMakeRange(0,@"URL".length)];
         UITextView *urlTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         urlTextView.userInteractionEnabled = NO;
