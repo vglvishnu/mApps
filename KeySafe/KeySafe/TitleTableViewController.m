@@ -10,10 +10,12 @@
 #import "SPDatasebaseDAO.h"
 #import "DetailViewController.h"
 #import "AddEntryViewController.h"
+#define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
 @interface TitleTableViewController ()
    @property DetailViewController *detailViewController;
    @property AddEntryViewController *addEntryViewController;
+
    
 @end
 
@@ -55,25 +57,10 @@
     [[UINavigationBar appearance]
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor greenColor]}];
      
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor greenColor];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor greenColor];
-        self.tableView.backgroundColor = [UIColor grayColor];
-//    NSLog(@"Title view Controller");
-    //self.dbdao = [[SPDatasebaseDAO alloc] init];
-//    self.spAllEntries  =[[NSMutableArray alloc] init];
-//    self.spAllEntries  = [self.dbdao getEntriesFromDB];
-//    self.spselectedEntries  =[[NSMutableArray alloc] init];
-//    NSPredicate *folderpredicate = [NSPredicate predicateWithFormat:@"folderName = %@", self.folderName];
-//    [self updateSpSelectedEntriesCollection:[self.spAllEntries filteredArrayUsingPredicate:folderpredicate]];
-//    //[self.spselectedEntries addObjectsFromArray:[self.spAllEntries filteredArrayUsingPredicate:folderpredicate]];
-//    
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
+    self.navigationItem.leftBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
+    self.tableView.backgroundColor = [UIColor grayColor];
+      
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,7 +91,7 @@
     cell.backgroundColor = [UIColor grayColor];
     cell.contentView.backgroundColor = [UIColor grayColor];
     cell.textLabel.backgroundColor =[UIColor grayColor];
-    cell.textLabel.textColor = [UIColor greenColor];
+    cell.textLabel.textColor =  Rgb2UIColor(255, 253, 208);
     
     return cell;
 }
@@ -173,7 +160,7 @@
     AddEntryViewController *addSource = [segue sourceViewController];
     NSLog(@"unwindToList TitleViewController");
     NSLog(@"addSource.keyEntry %@",addSource.keyEntry);
-    if ( addSource.keyEntry) {
+    if ( addSource.keyEntry && addSource.keyEntry.sptitle) {
         NSLog(@"Insert in entry Table");
         [self.spAllEntries addObject:addSource.keyEntry];
         NSLog(@"Count= %lu",(unsigned long)self.spSelectedEntries.count);

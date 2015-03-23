@@ -73,6 +73,15 @@
         [folderTextView setFont:detailFont];
         //[folderTextView sizeToFit];
         [folderTextView setAttributedText:displayAttrString];
+        
+        UITableView *folderTableView = [[UITableView alloc] initWithFrame:CGRectZero];
+        folderTableView.userInteractionEnabled = NO;
+        [folderTableView setFrame:CGRectMake(31, 450, 290, 51)];
+        [folderTableView setBackgroundColor:grayColor];
+        
+        //[folderTextView sizeToFit];
+        
+        
        
         
         NSMutableAttributedString *displayAttrString1=[[NSMutableAttributedString alloc] initWithString: [[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle] attributes:subattrs];
@@ -139,6 +148,7 @@
         [[self view] addSubview:loginTextView];
         [[self view] addSubview:passwordTextView];
         [[self view] addSubview:urlTextView];
+        [[self view] addSubview:folderTableView];
         
         
     }
