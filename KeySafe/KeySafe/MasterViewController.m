@@ -53,8 +53,8 @@
 //    [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
     self.view.backgroundColor = Rgb2UIColor(255, 255, 255);
     self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor grayColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor grayColor];
     self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
 
     self.navigationController.navigationBar.tintColor = Rgb2UIColor(255, 253, 208);

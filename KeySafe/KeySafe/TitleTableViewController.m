@@ -59,7 +59,7 @@
      
     self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
     self.navigationItem.leftBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
-    self.tableView.backgroundColor = [UIColor grayColor];
+    self.tableView.backgroundColor = Rgb2UIColor(255, 253, 250);
       
 }
 
@@ -88,10 +88,10 @@
     
     cell.textLabel.text = spEntry.sptitle;
     
-    cell.backgroundColor = [UIColor grayColor];
-    cell.contentView.backgroundColor = [UIColor grayColor];
-    cell.textLabel.backgroundColor =[UIColor grayColor];
-    cell.textLabel.textColor =  Rgb2UIColor(255, 253, 208);
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.contentView.backgroundColor = Rgb2UIColor(255, 253, 250);
+    cell.textLabel.backgroundColor =[UIColor whiteColor];
+    cell.textLabel.textColor =  Rgb2UIColor(0, 0, 0);
     
     return cell;
 }

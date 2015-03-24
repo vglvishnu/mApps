@@ -39,14 +39,14 @@
         UIColor *creamColor = Rgb2UIColor(255, 253, 208);
         UIColor *grayColor  = [UIColor grayColor];
         UIColor *foregroundColor = [UIColor whiteColor];
-        UIColor *defaultColor = Rgb2UIColor(255, 253, 208);
+        UIColor *defaultColor = [UIColor blackColor];
         UIFont *boldFontName = [UIFont fontWithName:@"Helvetica-Bold" size:17];
         UIFont *italicFont = [UIFont fontWithName:@"Helvetica-BoldOblique" size:17];
         
         //TODO: Yet to figure out this
         UITextView *dummyTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         dummyTextView.userInteractionEnabled = NO;
-        [dummyTextView setFrame:CGRectMake(31, 50, 290, 51)];
+        [dummyTextView setFrame:CGRectMake(31, 50, 250, 51)];
         [dummyTextView setTextColor:creamColor];
         [dummyTextView setBackgroundColor:grayColor];
         [dummyTextView setFont:detailFont];
@@ -55,7 +55,7 @@
         
         NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys:
                                boldFontName, NSFontAttributeName,
-                               foregroundColor, NSForegroundColorAttributeName, nil];
+                               [UIColor grayColor], NSForegroundColorAttributeName, nil];
         
         NSDictionary *subattrs = [NSDictionary dictionaryWithObjectsAndKeys:
                                italicFont, NSFontAttributeName,
@@ -67,16 +67,16 @@
        
         UITextView *folderTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         folderTextView.userInteractionEnabled = NO;
-        [folderTextView setFrame:CGRectMake(31, 100, 290, 51)];
-        [folderTextView setTextColor:creamColor];
-        [folderTextView setBackgroundColor:grayColor];
+        [folderTextView setFrame:CGRectMake(31, 100, 250, 51)];
+        [folderTextView setTextColor:[UIColor blackColor]];
+        [folderTextView setBackgroundColor:[UIColor whiteColor]];
         [folderTextView setFont:detailFont];
         //[folderTextView sizeToFit];
         [folderTextView setAttributedText:displayAttrString];
         
         UITableView *folderTableView = [[UITableView alloc] initWithFrame:CGRectZero];
         folderTableView.userInteractionEnabled = NO;
-        [folderTableView setFrame:CGRectMake(31, 450, 290, 51)];
+        [folderTableView setFrame:CGRectMake(31, 450, 250, 51)];
         [folderTableView setBackgroundColor:grayColor];
         
         //[folderTextView sizeToFit];
@@ -90,9 +90,9 @@
         
         UITextView *titleTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         titleTextView.userInteractionEnabled = NO;
-        [titleTextView setFrame:CGRectMake(31, 170, 290, 51)];
-        [titleTextView setTextColor:creamColor];
-        [titleTextView setBackgroundColor:grayColor];
+        [titleTextView setFrame:CGRectMake(31, 170, 250, 51)];
+        [titleTextView setTextColor:[UIColor blackColor]];
+        [titleTextView setBackgroundColor:[UIColor whiteColor]];
         [titleTextView setFont:detailFont];
         //[folderTextView sizeToFit];
        // [titleTextView setText:[[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle]];
@@ -106,9 +106,9 @@
       
         UITextView *loginTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         loginTextView.userInteractionEnabled = NO;
-        [loginTextView setFrame:CGRectMake(31, 240, 290, 51)];
-        [loginTextView setTextColor:creamColor];
-        [loginTextView setBackgroundColor:grayColor];
+        [loginTextView setFrame:CGRectMake(31, 240, 250, 51)];
+        [loginTextView setTextColor:[UIColor blackColor]];
+        [loginTextView setBackgroundColor:[UIColor whiteColor]];
         [loginTextView setFont:detailFont];
         //[folderTextView sizeToFit];
         //[loginTextView setText:[[@"Login" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.login]];
@@ -119,9 +119,9 @@
         [displayAttrString3 setAttributes:attrs range:NSMakeRange(0,@"Secret".length)];
         UITextView *passwordTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         passwordTextView.userInteractionEnabled = NO;
-        [passwordTextView setFrame:CGRectMake(31, 310, 290, 51)];
-        [passwordTextView setTextColor:creamColor];
-        [passwordTextView setBackgroundColor:grayColor];
+        [passwordTextView setFrame:CGRectMake(31, 310, 250, 51)];
+        [passwordTextView setTextColor:[UIColor blackColor]];
+        [passwordTextView setBackgroundColor:[UIColor whiteColor]];
         [passwordTextView setFont:detailFont];
         //[folderTextView sizeToFit];
         //[passwordTextView setText:[[@"Secret" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.passWord]];
@@ -134,9 +134,9 @@
         [displayAttrString4 setAttributes:attrs range:NSMakeRange(0,@"URL".length)];
         UITextView *urlTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         urlTextView.userInteractionEnabled = NO;
-        [urlTextView setFrame:CGRectMake(31, 380, 290, 51)];
-        [urlTextView setTextColor:creamColor];
-        [urlTextView setBackgroundColor:grayColor];
+        [urlTextView setFrame:CGRectMake(31, 380, 250, 51)];
+        [urlTextView setTextColor:[UIColor blackColor]];
+        [urlTextView setBackgroundColor:[UIColor whiteColor]];
         [urlTextView setFont:detailFont];
         //[folderTextView sizeToFit];
         //[urlTextView setText:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
@@ -157,7 +157,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = Rgb2UIColor(255, 253, 250);
     self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
     self.navigationItem.leftBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
 
