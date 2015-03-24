@@ -51,19 +51,20 @@
     [self.spfolders addObjectsFromArray:[_dbdao getFoldersFromDB]];
 //    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 //    [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
+    self.view.backgroundColor = Rgb2UIColor(255, 255, 255);
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
 
     self.navigationController.navigationBar.tintColor = Rgb2UIColor(255, 253, 208);
-;
+   
     
     [[UINavigationBar appearance] setTitleTextAttributes:[NSMutableDictionary dictionaryWithObjectsAndKeys:[UIFont
                                                                                                      fontWithName:@"HelveticaNeue-Light" size:20], NSFontAttributeName,
                                                           Rgb2UIColor(255, 253, 208)
 , NSForegroundColorAttributeName, nil]];
-    self.tableView.backgroundColor = [UIColor grayColor];
+    self.tableView.backgroundColor = Rgb2UIColor(255, 253, 250);
     
 
     // Do any additional setup after loading the view, typically from a nib.
@@ -136,13 +137,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MasterCell" forIndexPath:indexPath];
 
     NSDate *object = self.spfolders[indexPath.row];
-    cell.backgroundColor = [UIColor grayColor];
+    cell.backgroundColor = [UIColor whiteColor];
     cell.textLabel.text = [object description];
-    cell.contentView.backgroundColor = [UIColor grayColor];
-    cell.textLabel.backgroundColor =[UIColor grayColor];
+    cell.contentView.backgroundColor = [UIColor whiteColor];
+    cell.textLabel.backgroundColor =[UIColor whiteColor];
+    cell.imageView.backgroundColor =[UIColor whiteColor];
+    //cell.imageView.frame = CGRectMake(45.0,10.0,10,10);
+    
     //cell.textLabel.textColor = [UIColor colorWithRed:(160/255.0) green:(200/255.0) blue:(150/255.0) alpha:1];
     //cell.textLabel.textColor = [UIColor colorWithRed:(255/255.0) green:(253/255.0) blue:(208/255.0) alpha:1];
-    cell.textLabel.textColor = Rgb2UIColor(255, 253, 208);
+    cell.textLabel.textColor = [UIColor blackColor];
     return cell;
 }
 
