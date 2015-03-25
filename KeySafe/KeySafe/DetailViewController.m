@@ -21,27 +21,19 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-            
-        // Update the view.
-        [self configureView];
-    }
-}
 
-- (void)configureView {
+
+- (void)configureView:(UIView *) mainView {
     // Update the user interface for the detail item.
     if (self.entry) {
         
         
-        UIFont *detailFont = [UIFont fontWithName:@"Helvetica Neue" size:17];
+        UIFont  *detailFont = [UIFont fontWithName:@"Helvetica Neue" size:17];
         UIColor *creamColor = Rgb2UIColor(255, 253, 208);
         UIColor *grayColor  = [UIColor grayColor];
-        UIColor *foregroundColor = [UIColor whiteColor];
         UIColor *defaultColor = [UIColor blackColor];
-        UIFont *boldFontName = [UIFont fontWithName:@"Helvetica-Bold" size:17];
-        UIFont *italicFont = [UIFont fontWithName:@"Helvetica-BoldOblique" size:17];
+        UIFont  *boldFontName = [UIFont fontWithName:@"Helvetica-Bold" size:17];
+        UIFont  *italicFont = [UIFont fontWithName:@"Helvetica-BoldOblique" size:17];
         
         //TODO: Yet to figure out this
         UITextView *dummyTextView = [[UITextView alloc] initWithFrame:CGRectZero];
@@ -65,12 +57,20 @@
        
         [displayAttrString setAttributes:attrs  range:NSMakeRange(0,@"Folder".length)];
        
-        UITextView *folderTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+       
+        UITextView *folderTextView = [[UITextView alloc] initWithFrame:CGRectMake(31, 120, 250, 51)];
         folderTextView.userInteractionEnabled = NO;
+        
+       // [folderTextView setFrame:CGRectMake(31, 100, 250, 51)];
+        
+        CGRect frame = folderTextView.frame;
+        frame.origin = CGPointMake(0.0f, 0.0f);
+        folderTextView.frame = frame;
         [folderTextView setFrame:CGRectMake(31, 100, 250, 51)];
         [folderTextView setTextColor:[UIColor blackColor]];
         [folderTextView setBackgroundColor:[UIColor whiteColor]];
         [folderTextView setFont:detailFont];
+        
         //[folderTextView sizeToFit];
         [folderTextView setAttributedText:displayAttrString];
         
@@ -81,8 +81,8 @@
         
         //[folderTextView sizeToFit];
         
+        [self.view setBackgroundColor:Rgb2UIColor(255, 253, 250)];
         
-       
         
         NSMutableAttributedString *displayAttrString1=[[NSMutableAttributedString alloc] initWithString: [[@"Title" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.sptitle] attributes:subattrs];
        
@@ -90,6 +90,7 @@
         
         UITextView *titleTextView = [[UITextView alloc] initWithFrame:CGRectZero];
         titleTextView.userInteractionEnabled = NO;
+
         [titleTextView setFrame:CGRectMake(31, 170, 250, 51)];
         [titleTextView setTextColor:[UIColor blackColor]];
         [titleTextView setBackgroundColor:[UIColor whiteColor]];
@@ -142,13 +143,13 @@
         //[urlTextView setText:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
         [urlTextView setAttributedText:displayAttrString4];
         
-        [[self view] addSubview:dummyTextView];
-        [[self view] addSubview:folderTextView];
+       // [[self view] addSubview:dummyTextView];
+        [mainView addSubview:folderTextView];
         [[self view] addSubview:titleTextView];
         [[self view] addSubview:loginTextView];
         [[self view] addSubview:passwordTextView];
         [[self view] addSubview:urlTextView];
-        [[self view] addSubview:folderTableView];
+        //[[self view] addSubview:folderTableView];
         
         
     }
@@ -157,12 +158,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = Rgb2UIColor(255, 253, 250);
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
+    contentView.backgroundColor = Rgb2UIColor(255, 253, 250);
+    [[self view] addSubview:contentView];
+    //self.view.backgroundColor = Rgb2UIColor(255, 253, 250);
     self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
     self.navigationItem.leftBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
 
     self.spDAO = [[SPDatasebaseDAO alloc] init];
-    [self configureView];
+    [self configureView:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -182,7 +187,7 @@
         self.entry.url = addSource.keyEntry.url;
         self.entry.notes = addSource.keyEntry.notes;
         
-        [self configureView];
+        [self configureView:self.view];
         
         NSLog(@"here is the id %@",self.entry.keyid);
         [self.spDAO updateSPEntryToDB:self.entry];
@@ -198,7 +203,7 @@
     AddEntryViewController  *addController = (AddEntryViewController  *)[segue destinationViewController] ;
     
     [addController setKeyEntry:self.entry];
-    [self configureView];
+    //[self configureView];
 }
 
 @end
