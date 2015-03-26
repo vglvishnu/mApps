@@ -143,12 +143,26 @@
         //[urlTextView setText:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
         [urlTextView setAttributedText:displayAttrString4];
         
+        
+        NSMutableAttributedString *displayAttrString5=[[NSMutableAttributedString alloc] initWithString:[[@"Notes" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.notes] attributes:subattrs];
+        [displayAttrString5 setAttributes:attrs range:NSMakeRange(0,@"Notes".length)];
+        UITextView *notesTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+        notesTextView.userInteractionEnabled = NO;
+        [notesTextView setFrame:CGRectMake(31, 450, 250, 70)];
+        [notesTextView setTextColor:[UIColor blackColor]];
+        [notesTextView setBackgroundColor:[UIColor whiteColor]];
+        [notesTextView setFont:detailFont];
+        //[folderTextView sizeToFit];
+        //[urlTextView setText:[[@"URL" stringByAppendingString:@"\n"] stringByAppendingString:self.entry.url]];
+        [notesTextView setAttributedText:displayAttrString5];
+        
        // [[self view] addSubview:dummyTextView];
         [mainView addSubview:folderTextView];
         [[self view] addSubview:titleTextView];
         [[self view] addSubview:loginTextView];
         [[self view] addSubview:passwordTextView];
         [[self view] addSubview:urlTextView];
+        [[self view] addSubview:notesTextView];
         //[[self view] addSubview:folderTableView];
         
         
