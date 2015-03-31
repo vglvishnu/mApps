@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TitleTableViewController.h"
+#import "AddEntryViewController.h"
 #import <sqlite3.h>
 
 @class DetailViewController;
@@ -16,6 +17,7 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) TitleTableViewController *titleViewController;
+@property (strong, nonatomic) AddEntryViewController *addViewController;
 @property (nonatomic) sqlite3 *storePassDB;
 @property (strong, nonatomic) NSString * selectedfolderName;
 

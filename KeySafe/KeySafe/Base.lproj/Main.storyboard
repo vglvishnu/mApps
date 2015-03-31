@@ -23,7 +23,7 @@
         <!--Titles-->
         <scene sceneID="De2-3S-eYc">
             <objects>
-                <tableViewController id="q19-Dq-m7X" customClass="TitleTableViewController" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="flipHorizontal" id="q19-Dq-m7X" customClass="TitleTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="R3L-Fe-ol7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -270,7 +270,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYE-tX-L6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lRE-hb-WFY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="376"/>
+            <point key="canvasLocation" x="3285" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -330,6 +330,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZhT-BM-Khp"/>
-        <segue reference="C4i-CB-x4j"/>
+        <segue reference="ien-XP-7iB"/>
     </inferredMetricsTieBreakers>
 </document>

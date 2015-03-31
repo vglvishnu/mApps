@@ -121,6 +121,13 @@
     }
     
     
+    if([[segue identifier] isEqualToString:@"addTitle"]) {
+        
+        self.addViewController = (AddEntryViewController *)[[segue destinationViewController] topViewController];
+        
+        
+    }
+    
 }
 
 #pragma mark - Table View

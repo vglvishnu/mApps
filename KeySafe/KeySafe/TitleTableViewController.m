@@ -54,8 +54,8 @@
     [super viewDidLoad];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
-    [[UINavigationBar appearance]
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor greenColor]}];
+  //  [[UINavigationBar appearance]
+   //  setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor greenColor]}];
      
     self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
     self.navigationItem.leftBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
