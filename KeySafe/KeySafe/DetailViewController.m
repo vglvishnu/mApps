@@ -182,6 +182,7 @@
 
     self.spDAO = [[SPDatasebaseDAO alloc] init];
     [self configureView:self.view];
+    
 }
 
 - (void)didReceiveMemoryWarning {

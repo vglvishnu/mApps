@@ -15,8 +15,10 @@
 @interface TitleTableViewController ()
    @property DetailViewController *detailViewController;
    @property AddEntryViewController *addEntryViewController;
+   @property BOOL dataHasChanged;
+   @property BOOL scrollToLast;
 
-   
+
 @end
 
 @implementation TitleTableViewController
@@ -56,7 +58,10 @@
     [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
   //  [[UINavigationBar appearance]
    //  setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor greenColor]}];
-     
+    UIEdgeInsets inset = UIEdgeInsetsMake(70, 0, 0, 0);
+    self.tableView.contentInset = inset;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.navigationItem.rightBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
     self.navigationItem.leftBarButtonItem.tintColor = Rgb2UIColor(255, 253, 208);
     self.tableView.backgroundColor = Rgb2UIColor(255, 253, 250);
@@ -160,6 +165,7 @@
     AddEntryViewController *addSource = [segue sourceViewController];
     NSLog(@"unwindToList TitleViewController");
     NSLog(@"addSource.keyEntry %@",addSource.keyEntry);
+    
     if ( addSource.keyEntry && addSource.keyEntry.sptitle) {
         NSLog(@"Insert in entry Table");
         [self.spAllEntries addObject:addSource.keyEntry];
@@ -175,6 +181,24 @@
 
     }
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.dataHasChanged) {
+        self.dataHasChanged = NO;
+        [[self tableView] reloadData];
+    } else {
+        self.scrollToLast = NO; // No reload -> no need to scroll!
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.scrollToLast) {
+        NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:(self.spSelectedEntries.count - 1) inSection:0];
+        [[self tableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 
 @end
