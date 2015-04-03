@@ -12,7 +12,6 @@
 		274A90F31A976FE90004561D /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A90F21A976FE90004561D /* MasterViewController.m */; };
 		274A90F61A976FE90004561D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A90F51A976FE90004561D /* DetailViewController.m */; };
 		274A90F91A976FE90004561D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274A90F71A976FE90004561D /* Main.storyboard */; };
-		274A90FB1A976FE90004561D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 274A90FA1A976FE90004561D /* Images.xcassets */; };
 		274A90FE1A976FE90004561D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274A90FC1A976FE90004561D /* LaunchScreen.xib */; };
 		274A910A1A976FE90004561D /* KeySafeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91091A976FE90004561D /* KeySafeTests.m */; };
 		274A91141A9770450004561D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 274A91131A9770450004561D /* libsqlite3.dylib */; };
@@ -20,6 +19,12 @@
 		274A912A1A98DCCD0004561D /* SPDatasebaseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91241A98DCCD0004561D /* SPDatasebaseDAO.m */; };
 		274A912B1A98DCCD0004561D /* SPStoreEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91261A98DCCD0004561D /* SPStoreEntry.m */; };
 		274A912C1A98DCCD0004561D /* TitleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274A91281A98DCCD0004561D /* TitleTableViewController.m */; };
+		274D8F4B1AC114D9008F7986 /* redfolder.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 274D8F4A1AC114D9008F7986 /* redfolder.jpeg */; };
+		274D8F4D1AC1163E008F7986 /* redribbon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 274D8F4C1AC1163E008F7986 /* redribbon.jpeg */; };
+		274D8F4F1AC11692008F7986 /* redtitle.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 274D8F4E1AC11692008F7986 /* redtitle.jpeg */; };
+		277FDC7B1ACE3E99000270F5 /* Keypass_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 277FDC7A1ACE3E99000270F5 /* Keypass_icon.png */; };
+		27F95E961ACBB293006E62D7 /* Vault.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 27F95E951ACBB293006E62D7 /* Vault.jpeg */; };
+		27FF70C51ACC1A21003E8BFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FF70C41ACC1A21003E8BFE /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +48,6 @@
 		274A90F41A976FE90004561D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		274A90F51A976FE90004561D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		274A90F81A976FE90004561D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		274A90FA1A976FE90004561D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		274A90FD1A976FE90004561D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		274A91031A976FE90004561D /* KeySafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeySafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		274A91081A976FE90004561D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +61,12 @@
 		274A91261A98DCCD0004561D /* SPStoreEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPStoreEntry.m; sourceTree = "<group>"; };
 		274A91271A98DCCD0004561D /* TitleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTableViewController.h; sourceTree = "<group>"; };
 		274A91281A98DCCD0004561D /* TitleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleTableViewController.m; sourceTree = "<group>"; };
+		274D8F4A1AC114D9008F7986 /* redfolder.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redfolder.jpeg; sourceTree = "<group>"; };
+		274D8F4C1AC1163E008F7986 /* redribbon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redribbon.jpeg; sourceTree = "<group>"; };
+		274D8F4E1AC11692008F7986 /* redtitle.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redtitle.jpeg; sourceTree = "<group>"; };
+		277FDC7A1ACE3E99000270F5 /* Keypass_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keypass_icon.png; sourceTree = "<group>"; };
+		27F95E951ACBB293006E62D7 /* Vault.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Vault.jpeg; sourceTree = "<group>"; };
+		27FF70C41ACC1A21003E8BFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +110,7 @@
 		274A90E91A976FE90004561D /* KeySafe */ = {
 			isa = PBXGroup;
 			children = (
+				27FF70C41ACC1A21003E8BFE /* Images.xcassets */,
 				274A91211A98DCCD0004561D /* AddEntryViewController.h */,
 				274A91221A98DCCD0004561D /* AddEntryViewController.m */,
 				274A91231A98DCCD0004561D /* SPDatasebaseDAO.h */,
@@ -115,7 +126,6 @@
 				274A90F41A976FE90004561D /* DetailViewController.h */,
 				274A90F51A976FE90004561D /* DetailViewController.m */,
 				274A90F71A976FE90004561D /* Main.storyboard */,
-				274A90FA1A976FE90004561D /* Images.xcassets */,
 				274A90FC1A976FE90004561D /* LaunchScreen.xib */,
 				274A90EA1A976FE90004561D /* Supporting Files */,
 			);
@@ -125,6 +135,11 @@
 		274A90EA1A976FE90004561D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				274D8F4E1AC11692008F7986 /* redtitle.jpeg */,
+				277FDC7A1ACE3E99000270F5 /* Keypass_icon.png */,
+				27F95E951ACBB293006E62D7 /* Vault.jpeg */,
+				274D8F4C1AC1163E008F7986 /* redribbon.jpeg */,
+				274D8F4A1AC114D9008F7986 /* redfolder.jpeg */,
 				274A90EB1A976FE90004561D /* Info.plist */,
 				274A90EC1A976FE90004561D /* main.m */,
 			);
@@ -229,8 +244,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				274A90F91A976FE90004561D /* Main.storyboard in Resources */,
+				274D8F4B1AC114D9008F7986 /* redfolder.jpeg in Resources */,
+				27FF70C51ACC1A21003E8BFE /* Images.xcassets in Resources */,
+				274D8F4D1AC1163E008F7986 /* redribbon.jpeg in Resources */,
+				27F95E961ACBB293006E62D7 /* Vault.jpeg in Resources */,
 				274A90FE1A976FE90004561D /* LaunchScreen.xib in Resources */,
-				274A90FB1A976FE90004561D /* Images.xcassets in Resources */,
+				277FDC7B1ACE3E99000270F5 /* Keypass_icon.png in Resources */,
+				274D8F4F1AC11692008F7986 /* redtitle.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = KeySafe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -389,6 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = KeySafe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
