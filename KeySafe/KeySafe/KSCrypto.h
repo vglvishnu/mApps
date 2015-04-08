@@ -36,8 +36,24 @@ static const KSCryptoSetting ksCryptoSettings = {
 @interface KSCrypto : NSObject
 
 
+- (NSData *) encryptDataForData:(NSData *) data
+                       password:(NSString *) password
+                             iv:(NSData **)iv
+                           salt:(NSData **)salt
+                          error:(NSError **)error;
 
 
+- (NSData *) decryptDataForData:(NSData *) data
+                       password:(NSString *) password
+                             iv:(NSData **)iv
+                           salt:(NSData **)salt
+                          error:(NSError **)error;
+
+- (NSData *) hashDataForData:(NSData *) data
+                       password:(NSString *) password
+                             iv:(NSData **)iv
+                           salt:(NSData **)salt
+                          error:(NSError **)error;
 
 
 @end
