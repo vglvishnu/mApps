@@ -11,7 +11,7 @@
 
 @implementation KSCrypto
 
-- (NSData *) encryptDataForData:(NSData *) data
+- (NSData *) encryptDataForData:(NSData *) plaindata
                        password:(NSString *) password
                              iv:(NSData **)iv
                            salt:(NSData **)salt
@@ -27,7 +27,7 @@
     
     size_t outLength;
     
-    NSMutableData *cipherData = [NSMutableData dataWithLength:data.length + ksCryptoSettings.ksAlgorithBlockSize];
+    NSMutableData *cipherData = [NSMutableData dataWithLength:plaindata.length + ksCryptoSettings.ksAlgorithBlockSize];
     
     CCCryptorStatus
     result = CCCrypt(kCCEncrypt,
@@ -36,8 +36,8 @@
                      key.bytes,
                      key.length,
                      (*iv).bytes,
-                     data.bytes,
-                     data.length,
+                     plaindata.bytes,
+                     plaindata.length,
                      cipherData.mutableBytes,
                      cipherData.length,
                      &outLength);
@@ -55,17 +55,58 @@
         return nil;
     }
     
+    NSLog(@"Cipher Data = %@", cipherData);
+    NSLog(@"IV=%@ and Salt=%@", *iv, *salt);
+    
     return cipherData;
 };
 
 
-- (NSData *) decryptDataForData:(NSData *) data
+- (NSData *) decryptDataForData:(NSData *) cipherData
                        password:(NSString *) password
-                             iv:(NSData **)iv
-                           salt:(NSData **)salt
+                             iv:(NSData *)iv
+                           salt:(NSData *)salt
                           error:(NSError **)error{
     
-    return nil;
+    NSAssert(iv,@" IV must not be null");
+    NSAssert(salt,@" SALT must not be null");
+    
+   
+    
+    NSData *key = [self aesKeyForPassword:password salt:salt];
+    
+    size_t outLength;
+    
+    NSMutableData *plainData = [NSMutableData dataWithLength:cipherData.length + ksCryptoSettings.ksAlgorithBlockSize];
+    
+    CCCryptorStatus
+    result = CCCrypt(kCCDecrypt,
+                     ksCryptoSettings.ksAlgorithm,
+                     kCCOptionPKCS7Padding,
+                     key.bytes,
+                     key.length,
+                     iv.bytes,
+                     cipherData.bytes,
+                     cipherData.length,
+                     plainData.mutableBytes,
+                     plainData.length,
+                     &outLength);
+    
+    
+    if(result == kCCSuccess) {
+        
+        plainData.length = outLength;
+    } else {if (error) {
+        
+        *error = [NSError errorWithDomain:@"ksCryptoDomain"
+                                     code:result
+                                 userInfo:nil];
+    }
+        return nil;
+    }
+    
+    return plainData;
+
 };
 
 - (NSData *) hashDataForData:(NSData *) data

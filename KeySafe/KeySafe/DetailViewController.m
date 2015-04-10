@@ -10,6 +10,7 @@
 #import "SPStoreEntry.h"
 #import "AddEntryViewController.h"
 #import "SPDatasebaseDAO.h"
+#import "KSCrypto.h"
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
 @interface DetailViewController ()
@@ -164,9 +165,30 @@
         [[self view] addSubview:urlTextView];
         [[self view] addSubview:notesTextView];
         //[[self view] addSubview:folderTableView];
+        [self testCrypto];
         
-        
+                              
     }
+}
+
+
+-(void) testCrypto{
+    
+    KSCrypto *crypto = [[KSCrypto alloc]init];
+    NSData * iv;
+    NSData *salt;
+    NSError *error;
+    NSData *cipherData = [crypto encryptDataForData:[@"Chari" dataUsingEncoding:NSUTF8StringEncoding]             password:@"Vishnu01" iv:&iv salt:&salt error:&error];
+    
+    NSLog(@" In Detail View Controller IV=%@ and Salt=%@", iv, salt);
+    
+    NSData *plainData = [crypto decryptDataForData:cipherData password:@"Vishnu01" iv:iv salt:salt error:&error] ;
+    
+    
+    NSString *plainText = [[NSString alloc] initWithData:plainData encoding:NSUTF8StringEncoding];
+    NSLog(@"Detail View Controller PlainText=%@", plainText);
+    
+    
 }
 
 - (void)viewDidLoad {

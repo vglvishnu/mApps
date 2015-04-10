@@ -43,10 +43,10 @@ static const KSCryptoSetting ksCryptoSettings = {
                           error:(NSError **)error;
 
 
-- (NSData *) decryptDataForData:(NSData *) data
+- (NSData *) decryptDataForData:(NSData *) cipherData
                        password:(NSString *) password
-                             iv:(NSData **)iv
-                           salt:(NSData **)salt
+                             iv:(NSData *)iv
+                           salt:(NSData *)salt
                           error:(NSError **)error;
 
 - (NSData *) hashDataForData:(NSData *) data
