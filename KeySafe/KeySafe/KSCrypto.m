@@ -109,11 +109,36 @@
 
 };
 
-- (NSData *) hashDataForData:(NSData *) data
+- (NSData *) hashDataForData:(NSData *) plaindata
                     password:(NSString *) password
                           iv:(NSData **)iv
                         salt:(NSData **)salt
                        error:(NSError **)error{
+    
+    NSAssert(iv,@" IV must not be null");
+    NSAssert(salt,@" SALT must not be null");
+    
+    *iv = [self randomDataForLength:ksCryptoSettings.ksAlgorithmIVSize];
+    *salt = [self randomDataForLength:ksCryptoSettings.ksAlgorithSaltSize];
+    
+    NSData *key = [self aesKeyForPassword:password salt:*salt];
+    
+    size_t outLength;
+    
+    NSMutableData *hahshedData = [NSMutableData dataWithLength:plaindata.length + ksCryptoSettings.ksAlgorithBlockSize];
+    
+    CCCryptorStatus
+    result = CCCrypt(kCCEncrypt,
+                     ksCryptoSettings.ksAlgorithm,
+                     kCCOptionPKCS7Padding,
+                     key.bytes,
+                     key.length,
+                     (*iv).bytes,
+                     plaindata.bytes,
+                     plaindata.length,
+                     hahshedData.mutableBytes,
+                     hahshedData.length,
+                     &outLength);
     
     return nil;
 };

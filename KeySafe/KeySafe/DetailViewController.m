@@ -11,6 +11,7 @@
 #import "AddEntryViewController.h"
 #import "SPDatasebaseDAO.h"
 #import "KSCrypto.h"
+#import "NSString+MD5.h"
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
 @interface DetailViewController ()
@@ -178,15 +179,18 @@
     NSData * iv;
     NSData *salt;
     NSError *error;
-    NSData *cipherData = [crypto encryptDataForData:[@"Chari" dataUsingEncoding:NSUTF8StringEncoding]             password:@"Vishnu01" iv:&iv salt:&salt error:&error];
+    NSData *cipherData = [crypto encryptDataForData:[@"Chari is awesome and cool" dataUsingEncoding:NSUTF8StringEncoding]             password:@"Vishnu01" iv:&iv salt:&salt error:&error];
     
     NSLog(@" In Detail View Controller IV=%@ and Salt=%@", iv, salt);
+    NSLog(@"Detail View Controller CipherText=%@", cipherData);
     
     NSData *plainData = [crypto decryptDataForData:cipherData password:@"Vishnu01" iv:iv salt:salt error:&error] ;
     
     
     NSString *plainText = [[NSString alloc] initWithData:plainData encoding:NSUTF8StringEncoding];
     NSLog(@"Detail View Controller PlainText=%@", plainText);
+    
+    NSLog(@"Hash of String %@ is %@", @"Vishnu01", [@"Vishnu01" MD5]);
     
     
 }
