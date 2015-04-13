@@ -192,7 +192,11 @@
     
     NSLog(@"Hash of String %@ is %@", @"Vishnu01", [@"Vishnu01" MD5]);
     
+    NSData *hashSalt;
     
+    NSData *hashData = [crypto hashDataForData:[@"Chari is awesome and cool" dataUsingEncoding:NSUTF8StringEncoding] password:@"Vishnu01" salt:&hashSalt error:&error];
+    
+    NSLog(@"Hash - 256 of string %@ and hash value is %@",@"Chari is awesome and cool",hashData);
 }
 
 - (void)viewDidLoad {

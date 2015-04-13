@@ -51,7 +51,6 @@ static const KSCryptoSetting ksCryptoSettings = {
 
 - (NSData *) hashDataForData:(NSData *) data
                        password:(NSString *) password
-                             iv:(NSData **)iv
                            salt:(NSData **)salt
                           error:(NSError **)error;
 

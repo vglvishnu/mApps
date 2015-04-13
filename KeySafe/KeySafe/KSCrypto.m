@@ -8,6 +8,7 @@
 
 #import "KSCrypto.h"
 #import <CommonCrypto/CommonCrypto.h>
+#import <CommonCrypto/CommonHMAC.h>
 
 @implementation KSCrypto
 
@@ -111,36 +112,25 @@
 
 - (NSData *) hashDataForData:(NSData *) plaindata
                     password:(NSString *) password
-                          iv:(NSData **)iv
-                        salt:(NSData **)salt
+                         salt:(NSData **)salt
                        error:(NSError **)error{
     
-    NSAssert(iv,@" IV must not be null");
     NSAssert(salt,@" SALT must not be null");
     
-    *iv = [self randomDataForLength:ksCryptoSettings.ksAlgorithmIVSize];
     *salt = [self randomDataForLength:ksCryptoSettings.ksAlgorithSaltSize];
     
     NSData *key = [self aesKeyForPassword:password salt:*salt];
+    unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
+    CCHmac(kCCPRFHmacAlgSHA256,key.bytes,key.length,plaindata.bytes, plaindata.length, cHMAC);
     
-    size_t outLength;
+    NSString *hash;
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
     
-    NSMutableData *hahshedData = [NSMutableData dataWithLength:plaindata.length + ksCryptoSettings.ksAlgorithBlockSize];
+    for( int i=0; i < CC_SHA256_DIGEST_LENGTH ; i++)
+        [ output appendFormat:@"%02x", cHMAC[i]];
+    hash = output;
     
-    CCCryptorStatus
-    result = CCCrypt(kCCEncrypt,
-                     ksCryptoSettings.ksAlgorithm,
-                     kCCOptionPKCS7Padding,
-                     key.bytes,
-                     key.length,
-                     (*iv).bytes,
-                     plaindata.bytes,
-                     plaindata.length,
-                     hahshedData.mutableBytes,
-                     hahshedData.length,
-                     &outLength);
-    
-    return nil;
+    return [hash dataUsingEncoding:NSUTF8StringEncoding];
 };
 
 - (NSData *)randomDataForLength:(size_t) length {
