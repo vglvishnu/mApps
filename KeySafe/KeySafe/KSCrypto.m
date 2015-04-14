@@ -60,7 +60,7 @@
     NSLog(@"IV=%@ and Salt=%@", *iv, *salt);
     
     return cipherData;
-};
+}
 
 
 - (NSData *) decryptDataForData:(NSData *) cipherData
@@ -108,7 +108,7 @@
     
     return plainData;
 
-};
+}
 
 - (NSData *) hashDataForData:(NSData *) plaindata
                     password:(NSString *) password
@@ -120,18 +120,14 @@
     *salt = [self randomDataForLength:ksCryptoSettings.ksAlgorithSaltSize];
     
     NSData *key = [self aesKeyForPassword:password salt:*salt];
-    unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
-    CCHmac(kCCPRFHmacAlgSHA256,key.bytes,key.length,plaindata.bytes, plaindata.length, cHMAC);
+   
+    NSMutableData *cHMACData = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
     
-    NSString *hash;
-    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
     
-    for( int i=0; i < CC_SHA256_DIGEST_LENGTH ; i++)
-        [ output appendFormat:@"%02x", cHMAC[i]];
-    hash = output;
-    
-    return [hash dataUsingEncoding:NSUTF8StringEncoding];
-};
+    CCHmac(kCCPRFHmacAlgSHA256,key.bytes,key.length,plaindata.bytes, plaindata.length, cHMACData.mutableBytes);
+
+    return cHMACData;
+}
 
 - (NSData *)randomDataForLength:(size_t) length {
     
