@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>isConfigured</key>
-	<string>YES</string>
+	<false/>
 </dict>
 </plist>

@@ -17,12 +17,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"DragonPropertiesList" ofType:@"plist"];
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    
-    NSString *isConfigured = [dict objectForKey:@"isConfigured"];
-    
-    NSLog(@"Is the application configured %@", isConfigured);
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"DragonPropertiesList" ofType:@"plist"];
+//    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+//    
+//    BOOL isConfigured = [[dict objectForKey:@"isConfigured"]boolValue];
+//    
+//    NSLog(isConfigured ? @"YES":@"NO");
+//    
+//    if (isConfigured) {
+//        
+//       
+//       self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//       UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
+//        
+//       self.window.rootViewController = viewController;
+//       [self.window makeKeyAndVisible];
+//    }
+   
    
     
     return YES;
