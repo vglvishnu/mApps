@@ -142,6 +142,7 @@
 - (void) configureSettingView :(UIView*) settingView {
     
     //TODO: Build Settings Controller
+    //TODO: Add UIPAGE and TextFields in the PAGE
     
 }
 
