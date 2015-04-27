@@ -7,12 +7,17 @@
 //
 
 #import "VGLoginViewController.h"
+#import "VGSetPasswordViewController.h"
 
 @interface VGLoginViewController ()
 
 @property (nonatomic) IBOutlet UITextField *passWordTextField;
 @property (nonatomic) IBOutlet UIButton *goButton;
 @property (nonatomic) IBOutlet UIView *settingSubView;
+@property (nonatomic) IBOutlet UIPageViewController *pageController;
+@property (nonatomic) NSArray *viewControllers;
+
+
 
 @end
 
@@ -58,7 +63,8 @@
     
         [self.settingSubView setTranslatesAutoresizingMaskIntoConstraints:NO];
         self.settingSubView.layer.cornerRadius = 10;
-        self.settingSubView.backgroundColor = [UIColor colorWithRed:210.0/255.0 green:245.0/255.0 blue:255.0/255.0 alpha:1.0];
+//        self.settingSubView.backgroundColor = [UIColor colorWithRed:210.0/255.0 green:245.0/255.0 blue:255.0/255.0 alpha:1.0];
+        self.settingSubView.backgroundColor = [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0];
         //self.settingSubView.backgroundColor = [UIColor getUIColorObjectFromHexString:@"#D1EEFC"];
         [mainView addSubview:self.settingSubView];
 
@@ -98,7 +104,7 @@
                                                         multiplier:1.0
                                                           constant:0.0]];
     
-    
+        [self configureSettingView:self.settingSubView];
         [mainView addSubview:self.settingSubView];
     
     } else {
@@ -144,6 +150,75 @@
     //TODO: Build Settings Controller
     //TODO: Add UIPAGE and TextFields in the PAGE
     
+    self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    self.pageController.dataSource = self;
+    [[self.pageController view] setFrame:[settingView bounds]];
+    [self.pageController view].layer.cornerRadius = 10;
+    [[self.pageController view] setBackgroundColor:[UIColor colorWithRed:204.0/255.0 green:229.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    
+    VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] initWithParentView:[self.pageController view]];
+    
+    self.viewControllers = [NSArray arrayWithObject:pwdSettingController];
+   
+    [self.pageController setViewControllers:self.viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
+    [self addChildViewController:self.pageController];
+    
+
+    [settingView addSubview:[self.pageController view]];
+    [self.pageController didMoveToParentViewController:self];
+    
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor colorWithRed:192.0/255.0 green:192.0/255.0 blue:192.0/255.0 alpha:1.0];
+    pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+}
+
+- (UIViewController *) viewControllerAtIndex:(NSUInteger) index {
+    
+    if(index > self.viewControllers.count)
+        return nil;
+    
+    
+    return [self.viewControllers objectAtIndex:index];
+}
+
+- (NSUInteger) indexOfViewController:(UIViewController*) viewController {
+    
+    return [self.viewControllers indexOfObject:viewController];
+    
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSUInteger index = [self indexOfViewController:viewController];
+    
+    if (index == 0) {
+        return nil;
+    }
+    
+    index--;
+    
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    NSUInteger index = [self indexOfViewController:viewController];
+    
+    index++;
+    
+    if (index == 2) {
+        return nil;
+    }
+    
+    return [self viewControllerAtIndex:index];
+}
+
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return 2;
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    return 0;
 }
 
 @end

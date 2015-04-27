@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VGLoginViewController : UIViewController
+@interface VGLoginViewController : UIViewController <UIPageViewControllerDataSource>
 
 
 @end
