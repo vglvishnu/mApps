@@ -15,6 +15,7 @@
 		273B6CF21AEB53400089FB28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273B6CF01AEB53400089FB28 /* LaunchScreen.xib */; };
 		273B6CFE1AEB53400089FB28 /* DragonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 273B6CFD1AEB53400089FB28 /* DragonTests.m */; };
 		273B6D081AEB53F30089FB28 /* DragonPropertiesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273B6D071AEB53F30089FB28 /* DragonPropertiesList.plist */; };
+		276BDF721AEDB97C00D6351A /* VGSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276BDF711AEDB97C00D6351A /* VGSetPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		273B6CFC1AEB53400089FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		273B6CFD1AEB53400089FB28 /* DragonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragonTests.m; sourceTree = "<group>"; };
 		273B6D071AEB53F30089FB28 /* DragonPropertiesList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DragonPropertiesList.plist; sourceTree = "<group>"; };
+		276BDF701AEDB97C00D6351A /* VGSetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGSetPasswordViewController.h; sourceTree = "<group>"; };
+		276BDF711AEDB97C00D6351A /* VGSetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGSetPasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				273B6CE51AEB53400089FB28 /* AppDelegate.h */,
+				276BDF701AEDB97C00D6351A /* VGSetPasswordViewController.h */,
+				276BDF711AEDB97C00D6351A /* VGSetPasswordViewController.m */,
 				273B6CE61AEB53400089FB28 /* AppDelegate.m */,
 				273B6CE81AEB53400089FB28 /* VGLoginViewController.h */,
 				273B6CE91AEB53400089FB28 /* VGLoginViewController.m */,
@@ -226,6 +231,7 @@
 				273B6CEA1AEB53400089FB28 /* VGLoginViewController.m in Sources */,
 				273B6CE71AEB53400089FB28 /* AppDelegate.m in Sources */,
 				273B6CE41AEB53400089FB28 /* main.m in Sources */,
+				276BDF721AEDB97C00D6351A /* VGSetPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

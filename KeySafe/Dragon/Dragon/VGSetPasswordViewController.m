@@ -68,9 +68,9 @@
     
     
     //Set password text field
-    
+    [parentView setBackgroundColor:[UIColor blackColor]];
     self.setPasswordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20,
-                                                                           ((parentViewSize.height)/4 - 28), parentViewSize.width -30, 28)];
+                                                                           ((parentViewSize.height)/7.5 - 28), parentViewSize.width -70, 28)];
     [self.setPasswordTextField setPlaceholder:@"password"];
     [self.setPasswordTextField setSecureTextEntry:YES];
     [self.setPasswordTextField setBackgroundColor:[UIColor colorWithRed:245 green:253 blue:218 alpha:0]];
@@ -81,7 +81,7 @@
     
     // confirm password text field
     self.setPasswordConfirmTextField = [[UITextField alloc] initWithFrame:CGRectMake(20,
-                                                                              ((parentViewSize.height)/2 - 28), parentViewSize.width -30, 28)];
+                                                                              ((parentViewSize.height)/5 - 28), parentViewSize.width -70, 28)];
     [self.setPasswordConfirmTextField setPlaceholder:@"confirm password"];
     [self.setPasswordConfirmTextField setSecureTextEntry:YES];
     [self.setPasswordConfirmTextField setBackgroundColor:[UIColor colorWithRed:245 green:253 blue:218 alpha:0]];
@@ -95,7 +95,7 @@
     
     self.setPasswordNextButton =  [UIButton  buttonWithType:UIButtonTypeRoundedRect];
     self.setPasswordNextButton.layer.cornerRadius = 5;
-    [self.setPasswordNextButton setFrame:CGRectMake(self.setPasswordConfirmTextField.center.x - 20 , self.setPasswordConfirmTextField.center.y + 50 , 50, 28)];
+    [self.setPasswordNextButton setFrame:CGRectMake(self.setPasswordConfirmTextField.center.x - 30 , self.setPasswordConfirmTextField.center.y + 50 , 50, 28)];
     [self.setPasswordNextButton setTitle:@"Next" forState:UIControlStateNormal];
     [self.setPasswordNextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.setPasswordNextButton setBackgroundColor:[UIColor colorWithRed: 99.0/255.0 green: 184.0/255.0 blue:255.0/255.0 alpha: 1.0]];

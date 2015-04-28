@@ -32,7 +32,7 @@
     UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
     contentView.backgroundColor = [UIColor whiteColor];
     self.view = contentView;
-    
+     //NSLog(@"Height of contentView = %f",contentView.frame.size.height );
     [self configureView:[self view]];
 }
 
@@ -156,7 +156,8 @@
     [self.pageController view].layer.cornerRadius = 10;
     [[self.pageController view] setBackgroundColor:[UIColor colorWithRed:204.0/255.0 green:229.0/255.0 blue:255.0/255.0 alpha:1.0]];
     
-    VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] initWithParentView:[self.pageController view]];
+//    VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] initWithParentView:[self.pageController view]];
+    VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] init];
     
     self.viewControllers = [NSArray arrayWithObject:pwdSettingController];
    
