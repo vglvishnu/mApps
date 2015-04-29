@@ -111,7 +111,7 @@
     // Hint text field
     self.hintTextField = [[UITextField alloc] initWithFrame:CGRectMake(20,
                                                                                      ((parentViewSize.height)/3 - 28), parentViewSize.width -70, 28)];
-    [self.hintTextField setPlaceholder:@"Hint Answer"];
+    [self.hintTextField setPlaceholder:@"hint answer"];
     [self.hintTextField setSecureTextEntry:YES];
     [self.hintTextField setBackgroundColor:[UIColor colorWithRed:245 green:253 blue:218 alpha:0]];
     [self.hintTextField setBorderStyle:UITextBorderStyleRoundedRect];
