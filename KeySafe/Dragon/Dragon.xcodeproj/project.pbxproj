@@ -16,6 +16,7 @@
 		273B6CFE1AEB53400089FB28 /* DragonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 273B6CFD1AEB53400089FB28 /* DragonTests.m */; };
 		273B6D081AEB53F30089FB28 /* DragonPropertiesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273B6D071AEB53F30089FB28 /* DragonPropertiesList.plist */; };
 		276BDF721AEDB97C00D6351A /* VGSetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276BDF711AEDB97C00D6351A /* VGSetPasswordViewController.m */; };
+		276BDF751AF0A56600D6351A /* VGPassWordTextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 276BDF741AF0A56600D6351A /* VGPassWordTextFieldDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		273B6D071AEB53F30089FB28 /* DragonPropertiesList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DragonPropertiesList.plist; sourceTree = "<group>"; };
 		276BDF701AEDB97C00D6351A /* VGSetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGSetPasswordViewController.h; sourceTree = "<group>"; };
 		276BDF711AEDB97C00D6351A /* VGSetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGSetPasswordViewController.m; sourceTree = "<group>"; };
+		276BDF731AF0A56600D6351A /* VGPassWordTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGPassWordTextFieldDelegate.h; sourceTree = "<group>"; };
+		276BDF741AF0A56600D6351A /* VGPassWordTextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGPassWordTextFieldDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		273B6CE01AEB53400089FB28 /* Dragon */ = {
 			isa = PBXGroup;
 			children = (
+				276BDF731AF0A56600D6351A /* VGPassWordTextFieldDelegate.h */,
+				276BDF741AF0A56600D6351A /* VGPassWordTextFieldDelegate.m */,
 				273B6CE51AEB53400089FB28 /* AppDelegate.h */,
 				276BDF701AEDB97C00D6351A /* VGSetPasswordViewController.h */,
 				276BDF711AEDB97C00D6351A /* VGSetPasswordViewController.m */,
@@ -229,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				273B6CEA1AEB53400089FB28 /* VGLoginViewController.m in Sources */,
+				276BDF751AF0A56600D6351A /* VGPassWordTextFieldDelegate.m in Sources */,
 				273B6CE71AEB53400089FB28 /* AppDelegate.m in Sources */,
 				273B6CE41AEB53400089FB28 /* main.m in Sources */,
 				276BDF721AEDB97C00D6351A /* VGSetPasswordViewController.m in Sources */,
