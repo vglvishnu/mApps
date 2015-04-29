@@ -10,9 +10,10 @@
 
 @interface VGSetPasswordViewController : UIViewController <UITextFieldDelegate>
     @property (nonatomic) UIView *setPasswordSubView;
-    @property (nonatomic) UITextField *setPasswordTextField;
-    @property (nonatomic) UITextField *setPasswordConfirmTextField;
-    @property (nonatomic) UIButton *setPasswordNextButton;
+    @property (nonatomic) UITextField *passwordTextField;
+    @property (nonatomic) UITextField *passwordConfirmTextField;
+    @property (nonatomic) UITextField *hintTextField;
+    @property (nonatomic) UIButton *nextButton;
 
  - (id)initWithParentView:(UIView *)parentView;
  - (id)initWithFrame:(CGRect )cgRect;
