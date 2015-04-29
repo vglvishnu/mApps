@@ -104,7 +104,7 @@
     [self.passwordConfirmTextField setSecureTextEntry:YES];
     [self.passwordConfirmTextField setBackgroundColor:[UIColor colorWithRed:245 green:253 blue:218 alpha:0]];
     [self.passwordConfirmTextField setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.passwordConfirmTextField setDelegate:self];
+    //[self.passwordConfirmTextField setDelegate:self];
     [self.passwordConfirmTextField setBackgroundColor:[UIColor whiteColor]];
    
     
@@ -115,7 +115,6 @@
     [self.hintTextField setSecureTextEntry:YES];
     [self.hintTextField setBackgroundColor:[UIColor colorWithRed:245 green:253 blue:218 alpha:0]];
     [self.hintTextField setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.hintTextField setDelegate:self];
     [self.hintTextField setBackgroundColor:[UIColor whiteColor]];
     
     
@@ -247,17 +246,17 @@
     
     if (entropy < 20) {
         
-        self.passwordStrength.progress = 0.2f;
+        self.passwordStrength.progress = entropy * .01f;
         self.passwordStrength.tintColor = [UIColor redColor];
     } else if (entropy < 50) {
         
-        self.passwordStrength.progress = 0.5f;
-        self.passwordStrength.tintColor = [UIColor yellowColor];
-    } else if (entropy < 60 ) {
-        self.passwordStrength.progress = 0.6f;
+        self.passwordStrength.progress = entropy * .01f;
         self.passwordStrength.tintColor = [UIColor orangeColor];
+    } else if (entropy < 60 ) {
+        self.passwordStrength.progress = entropy * .01f;
+        self.passwordStrength.tintColor = [UIColor yellowColor];
     } else {
-        self.passwordStrength.progress = 1.0f;
+        self.passwordStrength.progress = entropy * .01f;
         self.passwordStrength.tintColor = [UIColor greenColor];
     }
     
