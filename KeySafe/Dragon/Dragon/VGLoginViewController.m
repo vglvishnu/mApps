@@ -8,6 +8,7 @@
 
 #import "VGLoginViewController.h"
 #import "VGSetPasswordViewController.h"
+#import "VGSetPrefViewController.h"
 
 @interface VGLoginViewController ()
 
@@ -15,7 +16,7 @@
 @property (nonatomic) IBOutlet UIButton *goButton;
 @property (nonatomic) IBOutlet UIView *settingSubView;
 @property (nonatomic) IBOutlet UIPageViewController *pageController;
-@property (nonatomic) NSArray *viewControllers;
+@property (nonatomic) NSMutableArray *viewControllers;
 
 
 
@@ -63,9 +64,9 @@
     
         [self.settingSubView setTranslatesAutoresizingMaskIntoConstraints:NO];
         self.settingSubView.layer.cornerRadius = 10;
-//        self.settingSubView.backgroundColor = [UIColor colorWithRed:210.0/255.0 green:245.0/255.0 blue:255.0/255.0 alpha:1.0];
+
         self.settingSubView.backgroundColor = [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0];
-        //self.settingSubView.backgroundColor = [UIColor getUIColorObjectFromHexString:@"#D1EEFC"];
+        
         [mainView addSubview:self.settingSubView];
 
 //    // Width constraint, half of parent view width
@@ -155,13 +156,10 @@
     [[self.pageController view] setFrame:[settingView bounds]];
     [self.pageController view].layer.cornerRadius = 10;
     [[self.pageController view] setBackgroundColor:[UIColor colorWithRed:204.0/255.0 green:229.0/255.0 blue:255.0/255.0 alpha:1.0]];
-    
-//    VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] initWithParentView:[self.pageController view]];
-    VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] init];
-    
-    self.viewControllers = [NSArray arrayWithObject:pwdSettingController];
    
-    [self.pageController setViewControllers:self.viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    [self setUpPagesForPageController];
+   
+    [self.pageController setViewControllers:@[self.viewControllers[0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     [self addChildViewController:self.pageController];
     
@@ -172,6 +170,17 @@
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor colorWithRed:192.0/255.0 green:192.0/255.0 blue:192.0/255.0 alpha:1.0];
     pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+}
+
+- (void) setUpPagesForPageController {
+    
+    VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] init];
+    
+    VGSetPrefViewController *prefController = [[VGSetPrefViewController alloc] init];
+    
+    self.viewControllers = [NSMutableArray array];
+    [self.viewControllers addObject:pwdSettingController];
+    [self.viewControllers addObject:prefController];
 }
 
 - (UIViewController *) viewControllerAtIndex:(NSUInteger) index {

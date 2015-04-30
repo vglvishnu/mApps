@@ -15,7 +15,4 @@
     @property (nonatomic) UITextField *hintTextField;
     @property (nonatomic) UIButton *nextButton;
 
- - (id)initWithParentView:(UIView *)parentView;
- - (id)initWithFrame:(CGRect )cgRect;
-- (id)initWithSize:(CGSize )cgSize parentOrigin:(CGPoint) parentOrigin;
 @end

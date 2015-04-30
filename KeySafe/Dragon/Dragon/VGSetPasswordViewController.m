@@ -28,52 +28,24 @@
     
 }
 
-- (id)initWithParentView:(UIView *)parentView
-{
-    VGSetPasswordViewController* id = [super init];
-    self.parentView = parentView;
-    
-    CGRect applicationFrame = self.parentView.frame;
-  //  NSLog(@"Page View size %@",applicationFrame.origin.x);
-    UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
-    
-    //contentView.backgroundColor = [UIColor whiteColor];
-    self.view = contentView;
-
-   
-    return id;
- 
-}
-
-- (id)initWithFrame:(CGRect )cgRect
-{
-    VGSetPasswordViewController* id = [super init];
-    UIView *contentView = [[UIView alloc] initWithFrame:cgRect];
-    
-    self.view = contentView;
-    return id;
-    
-}
-
-- (id)initWithSize:(CGSize )cgSize parentOrigin:(CGPoint) parentOrigin
-{
-    VGSetPasswordViewController* id = [super init];
-    CGRect parentRect = CGRectMake(cgSize.height, cgSize.width, cgSize.width,cgSize.height);
-    UIView *contentView = [[UIView alloc] initWithFrame:parentRect];
-    
-    self.view = contentView;
-    return id;
-    
-}
 
 -(void) configureSetPassWordView:(UIView *) parentView {
      CGSize parentViewSize = parentView.frame.size;
     
     
+    UILabel *masterLabel = [[UILabel alloc] init];
+    masterLabel.text     = @"Master Password";
+    //[masterLabel setFrame:CGRectMake(65,10,150,28)];
+    [masterLabel setFrame:CGRectMake(parentView.frame.origin.x + 65,
+     ((parentViewSize.height)/15 - 28), parentViewSize.width -70, 28)];
+    [masterLabel setTextColor:[UIColor blackColor]];
+    
+    
+    
     //Set password text field
     [parentView setBackgroundColor:[UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0]];
     self.passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20,
-                                                                           ((parentViewSize.height)/7.5 - 28), parentViewSize.width -70, 28)];
+                                                                           ((parentViewSize.height)/7 - 28), parentViewSize.width -70, 28)];
     [self.passwordTextField setPlaceholder:@"password"];
     [self.passwordTextField setSecureTextEntry:YES];
     [self.passwordTextField setBackgroundColor:[UIColor colorWithRed:64 green:64 blue:64 alpha:0]];
@@ -99,7 +71,7 @@
     
     // confirm password text field
     self.passwordConfirmTextField = [[UITextField alloc] initWithFrame:CGRectMake(20,
-                                                                              ((parentViewSize.height)/4 - 28), parentViewSize.width -70, 28)];
+                                                                              ((parentViewSize.height)/3.5 - 28), parentViewSize.width -70, 28)];
     [self.passwordConfirmTextField setPlaceholder:@"confirm password"];
     [self.passwordConfirmTextField setSecureTextEntry:YES];
     [self.passwordConfirmTextField setBackgroundColor:[UIColor colorWithRed:245 green:253 blue:218 alpha:0]];
@@ -110,7 +82,7 @@
     
     // Hint text field
     self.hintTextField = [[UITextField alloc] initWithFrame:CGRectMake(20,
-                                                                                     ((parentViewSize.height)/3 - 28), parentViewSize.width -70, 28)];
+                                                                                     ((parentViewSize.height)/2.5 - 28), parentViewSize.width -70, 28)];
     [self.hintTextField setPlaceholder:@"hint answer"];
     [self.hintTextField setSecureTextEntry:YES];
     [self.hintTextField setBackgroundColor:[UIColor colorWithRed:245 green:253 blue:218 alpha:0]];
@@ -130,7 +102,7 @@
     [self.nextButton addTarget:self action:@selector(nextButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.nextButton setEnabled:NO];
     
-    
+    [parentView addSubview:masterLabel];
     [parentView addSubview:self.passwordTextField];
     [parentView addSubview:self.passwordStrength];
     [parentView addSubview:self.passwordConfirmTextField];
