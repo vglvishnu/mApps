@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27374AED1AF1C3DE003A1105 /* VGSetPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27374AEC1AF1C3DE003A1105 /* VGSetPrefViewController.m */; };
 		273B6CE41AEB53400089FB28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 273B6CE31AEB53400089FB28 /* main.m */; };
 		273B6CE71AEB53400089FB28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 273B6CE61AEB53400089FB28 /* AppDelegate.m */; };
 		273B6CEA1AEB53400089FB28 /* VGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273B6CE91AEB53400089FB28 /* VGLoginViewController.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27374AEB1AF1C3DE003A1105 /* VGSetPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGSetPrefViewController.h; sourceTree = "<group>"; };
+		27374AEC1AF1C3DE003A1105 /* VGSetPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGSetPrefViewController.m; sourceTree = "<group>"; };
 		273B6CDE1AEB53400089FB28 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		273B6CE21AEB53400089FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		273B6CE31AEB53400089FB28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				273B6CEE1AEB53400089FB28 /* Images.xcassets */,
 				273B6CF01AEB53400089FB28 /* LaunchScreen.xib */,
 				273B6CE11AEB53400089FB28 /* Supporting Files */,
+				27374AEB1AF1C3DE003A1105 /* VGSetPrefViewController.h */,
+				27374AEC1AF1C3DE003A1105 /* VGSetPrefViewController.m */,
 			);
 			path = Dragon;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				273B6CEA1AEB53400089FB28 /* VGLoginViewController.m in Sources */,
+				27374AED1AF1C3DE003A1105 /* VGSetPrefViewController.m in Sources */,
 				276BDF751AF0A56600D6351A /* VGPassWordTextFieldDelegate.m in Sources */,
 				273B6CE71AEB53400089FB28 /* AppDelegate.m in Sources */,
 				273B6CE41AEB53400089FB28 /* main.m in Sources */,

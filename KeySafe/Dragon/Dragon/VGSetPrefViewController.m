@@ -45,7 +45,22 @@
     [securityLabel setFrame:CGRectMake(parentView.frame.origin.x + 100,
                                      ((parentViewSize.height)/15 - 28), parentViewSize.width -70, 28)];
     [securityLabel setTextColor:[UIColor blackColor]];
+    
+    
+    self.enableTouchLogin = [[UISwitch alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 180,
+                                                                        ((parentViewSize.height)/6 - 28), parentViewSize.width -70, 28)];
+    
+    [self.enableTouchLogin setThumbTintColor:[UIColor colorWithRed:224.0/255.0 green: 224.0/255.0 blue:224.0/255.0 alpha:1.0]];
+    [self.enableTouchLogin setUserInteractionEnabled:YES];
+    [self.enableTouchLogin setTintColor:[UIColor grayColor]];
+    [self.enableTouchLogin setOnTintColor:[UIColor greenColor]];
+    [self.enableTouchLogin setOn:YES animated:YES];
+
+   
+    
+    
     [parentView addSubview:securityLabel];
+    [parentView addSubview:self.enableTouchLogin];
 }
 
 
