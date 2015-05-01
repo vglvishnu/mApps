@@ -87,5 +87,15 @@
     return sectionWidth;
 }
 
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
+    label.backgroundColor = [UIColor lightGrayColor];
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10];
+    label.text = [NSString stringWithFormat:@"%@",[self.lockTimeArray objectAtIndex:row]];
+    return label;
+}
+
 
 @end

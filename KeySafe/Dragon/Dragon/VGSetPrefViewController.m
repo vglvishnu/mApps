@@ -66,15 +66,15 @@
     
     
     
-    self.pickLockTime = [[UIPickerView alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 100,
-                                                                       ((parentViewSize.height)/5 - 28), parentViewSize.width -50, 30)];
+    self.pickLockTime = [[UIPickerView alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 200,
+                                                                       ((parentViewSize.height)/5 - 28), parentViewSize.width -250, 30)];
     
     VGLockTimePickViewDelegate *lockTimeDelegate = [[VGLockTimePickViewDelegate alloc] initWithDataSource];
     
     [self.pickLockTime setDataSource:lockTimeDelegate];
     [self.pickLockTime setDelegate:lockTimeDelegate];
      self.pickLockTime.showsSelectionIndicator = YES;
-    
+
     
     [self addChildViewController:lockTimeDelegate];
     
