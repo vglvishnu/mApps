@@ -7,14 +7,12 @@
 //
 
 #import "VGSetPrefViewController.h"
+#import "VGLockTimePickViewDelegate.h"
 
 @interface VGSetPrefViewController ()
 
-@property (nonatomic) UISwitch *enableTouchLogin;
-@property (nonatomic) UIPickerView *pickLockTime;
-@property (nonatomic) UISwitch *lockOnExit;
-@property (nonatomic) UIPickerView *pickTolarableRetry;
 
+@property UIFont  *labelFont;
 
 
 @end
@@ -35,6 +33,9 @@
 
 -(void) configureSetPassWordView:(UIView *) parentView {
     
+    
+    self.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:14];
+    
     CGSize parentViewSize = parentView.frame.size;
     
     [parentView setBackgroundColor:[UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0]];
@@ -47,7 +48,7 @@
     [securityLabel setTextColor:[UIColor blackColor]];
     
     
-    self.enableTouchLogin = [[UISwitch alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 180,
+    self.enableTouchLogin = [[UISwitch alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 200,
                                                                         ((parentViewSize.height)/6 - 28), parentViewSize.width -70, 28)];
     
     [self.enableTouchLogin setThumbTintColor:[UIColor colorWithRed:224.0/255.0 green: 224.0/255.0 blue:224.0/255.0 alpha:1.0]];
@@ -57,10 +58,55 @@
     [self.enableTouchLogin setOn:YES animated:YES];
 
    
+    UILabel *touchLabel = [[UILabel alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 20,
+                                                                    ((parentViewSize.height)/6 - 28), parentViewSize.width -70, 28)];
+    
+    [touchLabel setText:@"Enable Touch"];
+    [touchLabel setFont:self.labelFont];
+    
+    
+    
+    self.pickLockTime = [[UIPickerView alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 100,
+                                                                       ((parentViewSize.height)/5 - 28), parentViewSize.width -50, 30)];
+    
+    VGLockTimePickViewDelegate *lockTimeDelegate = [[VGLockTimePickViewDelegate alloc] initWithDataSource];
+    
+    [self.pickLockTime setDataSource:lockTimeDelegate];
+    [self.pickLockTime setDelegate:lockTimeDelegate];
+     self.pickLockTime.showsSelectionIndicator = YES;
+    
+    
+    [self addChildViewController:lockTimeDelegate];
+    
+    
+    
+    
+    self.lockOnExit = [[UISwitch alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 200,
+                                                                       ((parentViewSize.height)/2 - 20), parentViewSize.width -70, 28)];
+    
+    [self.lockOnExit setThumbTintColor:[UIColor colorWithRed:224.0/255.0 green: 224.0/255.0 blue:224.0/255.0 alpha:1.0]];
+    [self.lockOnExit setUserInteractionEnabled:YES];
+    [self.lockOnExit setTintColor:[UIColor grayColor]];
+    [self.lockOnExit setOnTintColor:[UIColor greenColor]];
+    [self.lockOnExit setOn:YES animated:YES];
+    
+    
+    UILabel *lockOnExitLabel = [[UILabel alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 20,
+                                                                    ((parentViewSize.height)/2 - 20), parentViewSize.width -70, 28)];
+    
+    [lockOnExitLabel setText:@"Lock on exit"];
+    [lockOnExitLabel setFont:self.labelFont];
+    
     
     
     [parentView addSubview:securityLabel];
+    [parentView addSubview:touchLabel];
     [parentView addSubview:self.enableTouchLogin];
+    
+    [parentView addSubview:self.pickLockTime];
+    [parentView addSubview:lockOnExitLabel];
+    [parentView addSubview:self.lockOnExit];
+   
 }
 
 

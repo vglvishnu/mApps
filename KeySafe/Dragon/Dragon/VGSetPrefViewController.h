@@ -10,4 +10,10 @@
 
 @interface VGSetPrefViewController : UIViewController
 
+
+@property (nonatomic) UISwitch *enableTouchLogin;
+@property (nonatomic) UIPickerView *pickLockTime;
+@property (nonatomic) UISwitch *lockOnExit;
+@property (nonatomic) UIPickerView *pickTolarableRetry;
+
 @end
