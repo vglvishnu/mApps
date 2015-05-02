@@ -1,65 +1,59 @@
 //
-//  VGLockTimePickViewDelegate.m
+//  VGTolarableRetryPickViewDelegateViewController.m
 //  Dragon
 //
-//  Created by Vishnu on 4/30/15.
+//  Created by Vishnu on 5/1/15.
 //  Copyright (c) 2015 CoolHead. All rights reserved.
 //
 
-#import "VGLockTimePickViewDelegate.h"
+#import "VGTolarableRetryPickViewDelegate.h"
 
-@interface VGLockTimePickViewDelegate()
+@interface VGTolarableRetryPickViewDelegate ()
 
-@property (nonatomic) NSMutableArray *lockTimeArray;
+@property (nonatomic) NSMutableArray *tolarableRetryArray;
 
 @end
 
-@implementation VGLockTimePickViewDelegate
+@implementation VGTolarableRetryPickViewDelegate
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 - (id) initWithDataSource {
     
     self = [super init];
     
     if(self) {
         
-        self.lockTimeArray = [[NSMutableArray alloc] init];
-        [self.lockTimeArray addObject:@"3 min"];
-        [self.lockTimeArray addObject:@"5 mins"];
-        [self.lockTimeArray addObject:@"10 mins"];
-        [self.lockTimeArray addObject:@"none"];
+        self.tolarableRetryArray = [[NSMutableArray alloc] init];
+        [self.tolarableRetryArray addObject:@"3"];
+        [self.tolarableRetryArray addObject:@"5"];
+        [self.tolarableRetryArray addObject:@"10"];
+        [self.tolarableRetryArray addObject:@"none"];
+        //[self.tolarableRetryArray addObject:@"none"];
     }
     
-    self.selectedCategory = [NSString stringWithFormat:@"%@",[self.lockTimeArray objectAtIndex:0]];
+    self.selectedCategory = [NSString stringWithFormat:@"%@",[self.tolarableRetryArray objectAtIndex:0]];
     return self;
 }
 
--(void) viewDidLoad {
-    
+
+- (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     // Handle the selection
     
-    NSLog(@"%@",[self.lockTimeArray objectAtIndex:row]);
-    self.selectedCategory = [NSString stringWithFormat:@"%@",[self.lockTimeArray objectAtIndex:row]];
+    NSLog(@"%@",[self.tolarableRetryArray objectAtIndex:row]);
+    self.selectedCategory = [NSString stringWithFormat:@"%@",[self.tolarableRetryArray objectAtIndex:row]];
 }
 
 // tell the picker how many rows are available for a given component
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [self.lockTimeArray count];
+    return [self.tolarableRetryArray count];
 }
 
 // tell the picker how many components it will have
@@ -70,8 +64,8 @@
 // tell the picker the title for a given component
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     //NSString *title;
-   
-    return [self.lockTimeArray objectAtIndex:row];
+    
+    return [self.tolarableRetryArray objectAtIndex:row];
     //return @"Hi";
 }
 
@@ -88,9 +82,19 @@
     label.backgroundColor = [UIColor colorWithRed:153.0/255.0 green:204.0/255.0 blue:255.0/255.0 alpha:1.0];
     label.textColor = [UIColor blackColor];
     label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10];
-    label.text = [NSString stringWithFormat:@"%@",[self.lockTimeArray objectAtIndex:row]];
+    label.text = [NSString stringWithFormat:@"%@",[self.tolarableRetryArray objectAtIndex:row]];
     return label;
 }
 
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

@@ -10,6 +10,7 @@
 
 @interface VGSetPrefViewController : UIViewController
 
+@property (nonatomic) UITableView *prefTableVeiw;
 
 @property (nonatomic) UISwitch *enableTouchLogin;
 @property (nonatomic) UIPickerView *pickLockTime;

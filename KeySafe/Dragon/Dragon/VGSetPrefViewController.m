@@ -8,6 +8,7 @@
 
 #import "VGSetPrefViewController.h"
 #import "VGLockTimePickViewDelegate.h"
+#import "VGTolarableRetryPickViewDelegate.h"
 
 @interface VGSetPrefViewController ()
 
@@ -22,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self configureSetPassWordView:self.view];
+  
+    [self configSetPassWordView:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,7 +32,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) configureSetPassWordView:(UIView *) parentView {
+-(void) configSetPassWordView:(UIView *) parentView {
     
     
     self.labelFont = [UIFont fontWithName:@"Helvetica Neue" size:14];
@@ -48,13 +49,13 @@
     [securityLabel setTextColor:[UIColor blackColor]];
     
     
-    self.enableTouchLogin = [[UISwitch alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 200,
+    self.enableTouchLogin = [[UISwitch alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 225,
                                                                         ((parentViewSize.height)/6 - 28), parentViewSize.width -70, 28)];
     
-    [self.enableTouchLogin setThumbTintColor:[UIColor colorWithRed:224.0/255.0 green: 224.0/255.0 blue:224.0/255.0 alpha:1.0]];
+    [self.enableTouchLogin setThumbTintColor:[UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0]];
     [self.enableTouchLogin setUserInteractionEnabled:YES];
-    [self.enableTouchLogin setTintColor:[UIColor grayColor]];
-    [self.enableTouchLogin setOnTintColor:[UIColor greenColor]];
+    [self.enableTouchLogin setTintColor:[UIColor colorWithRed:204.0/255.0 green:229.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    [self.enableTouchLogin setOnTintColor:[UIColor colorWithRed:51.0/255.0 green: 153./255.0 blue:225.0/255.0 alpha:1.0]];
     [self.enableTouchLogin setOn:YES animated:YES];
 
    
@@ -81,13 +82,13 @@
     
     
     
-    self.lockOnExit = [[UISwitch alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 200,
+    self.lockOnExit = [[UISwitch alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 225,
                                                                        ((parentViewSize.height)/2 - 20), parentViewSize.width -70, 28)];
     
-    [self.lockOnExit setThumbTintColor:[UIColor colorWithRed:224.0/255.0 green: 224.0/255.0 blue:224.0/255.0 alpha:1.0]];
+    [self.lockOnExit setThumbTintColor:[UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0]];
     [self.lockOnExit setUserInteractionEnabled:YES];
-    [self.lockOnExit setTintColor:[UIColor grayColor]];
-    [self.lockOnExit setOnTintColor:[UIColor greenColor]];
+    [self.lockOnExit setTintColor:[UIColor colorWithRed:204.0/255.0 green:229.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    [self.lockOnExit setOnTintColor:[UIColor colorWithRed:51.0/255.0 green: 153./255.0 blue:225.0/255.0 alpha:1.0]];
     [self.lockOnExit setOn:YES animated:YES];
     
     
@@ -99,6 +100,21 @@
     
     
     
+    self.pickTolarableRetry = [[UIPickerView alloc] initWithFrame:CGRectMake(parentView.frame.origin.x + 50,
+                                                                       ((parentViewSize.height)/5 - 28), parentViewSize.width -250, 30)];
+    
+    VGTolarableRetryPickViewDelegate *tolorableRetryDelegate = [[VGTolarableRetryPickViewDelegate alloc] initWithDataSource];
+    
+    [self.pickTolarableRetry setDataSource:tolorableRetryDelegate];
+    [self.pickTolarableRetry setDelegate:tolorableRetryDelegate];
+    self.pickTolarableRetry.showsSelectionIndicator = YES;
+    
+    
+    [self addChildViewController:tolorableRetryDelegate];
+    
+    
+    
+    
     [parentView addSubview:securityLabel];
     [parentView addSubview:touchLabel];
     [parentView addSubview:self.enableTouchLogin];
@@ -106,8 +122,13 @@
     [parentView addSubview:self.pickLockTime];
     [parentView addSubview:lockOnExitLabel];
     [parentView addSubview:self.lockOnExit];
+    [parentView addSubview:self.pickTolarableRetry];
+    
    
+
 }
+
+    
 
 
 /*
@@ -119,5 +140,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
 
 @end
