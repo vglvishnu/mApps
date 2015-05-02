@@ -9,6 +9,7 @@
 #import "VGLoginViewController.h"
 #import "VGSetPasswordViewController.h"
 #import "VGSetPrefViewController.h"
+#import "VGPrefViewController.h"
 
 @interface VGLoginViewController ()
 
@@ -176,10 +177,12 @@
     
     VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] init];
     
-    VGSetPrefViewController *prefController = [[VGSetPrefViewController alloc] init];
+    VGSetPrefViewController *setPrefController = [[VGSetPrefViewController alloc] init];
+    VGPrefViewController  *prefController = [[VGPrefViewController alloc] init];
     
     self.viewControllers = [NSMutableArray array];
     [self.viewControllers addObject:pwdSettingController];
+    [self.viewControllers addObject:setPrefController];
     [self.viewControllers addObject:prefController];
 }
 
@@ -215,7 +218,7 @@
     
     index++;
     
-    if (index == 2) {
+    if (index == self.viewControllers.count) {
         return nil;
     }
     
@@ -224,7 +227,7 @@
 
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return 2;
+    return self.viewControllers.count;
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
