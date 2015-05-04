@@ -10,4 +10,13 @@
 
 @interface VGPrefViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) UITableView *prefTableView;
+
+@property (nonatomic) UISwitch *enableTouchLogin;
+@property (nonatomic) UIPickerView *pickLockTime;
+@property (nonatomic) UISwitch *lockOnExit;
+@property (nonatomic) UIPickerView *pickTolarableRetry;
+
+@property (nonatomic) NSString *lockTimeText;
+@property (nonatomic) NSString *tolerableRetryCount;
+
 @end

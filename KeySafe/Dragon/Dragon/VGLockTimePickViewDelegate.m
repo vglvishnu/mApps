@@ -87,6 +87,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, pickerView.frame.size.width, 44)];
     label.backgroundColor = [UIColor colorWithRed:153.0/255.0 green:204.0/255.0 blue:255.0/255.0 alpha:1.0];
     label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:10];
     label.text = [NSString stringWithFormat:@"%@",[self.lockTimeArray objectAtIndex:row]];
     return label;
