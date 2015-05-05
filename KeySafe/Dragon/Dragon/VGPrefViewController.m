@@ -13,6 +13,8 @@
 @interface VGPrefViewController ()
 @property NSIndexPath *selectedRowIndex;
 @property NSMutableArray *tableDS;
+@property VGLockTimePickViewDelegate *lockTimeDelegate;
+@property  VGTolarableRetryPickViewDelegate *tolorableRetryDelegate ;
 @end
 
 @implementation VGPrefViewController
@@ -22,7 +24,7 @@
     // Do any additional setup after loading the view.
 //    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x+ 8,self.view.frame.origin.y + 100,self.view.frame.size.width - (self.view.frame.size.width/6.7), self.view.frame.size.height /2.25)];
     CGRect frame = self.view.frame;
-    frame.size.height -= 100;
+    frame.size.height -= 50;
     //frame.origin.x    +=10;
     
     
@@ -34,7 +36,9 @@
     self.tolerableRetryCount = @"5 times";
     [self.view addSubview:contentView];
     self.tableDS = [[NSMutableArray alloc] initWithObjects:@"0",@"1",@"2",@"3", nil];
-    
+    self.lockTimeDelegate = [[VGLockTimePickViewDelegate alloc] initWithDataSource];
+    self.tolorableRetryDelegate = [[VGTolarableRetryPickViewDelegate alloc] initWithDataSource];
+
     [self configurePrefTable:contentView];
 }
 
@@ -58,10 +62,10 @@
 
 -(void) configurePrefTable:(UIView *) parentView {
     
-    NSLog(@" x= %f",parentView.frame.origin.x);
-    NSLog(@" y= %f",parentView.frame.origin.y);
-    NSLog(@" Width= %f",parentView.frame.size.width);
-    NSLog(@" Heigth= %f",parentView.frame.size.height);
+//    NSLog(@" x= %f",parentView.frame.origin.x);
+//    NSLog(@" y= %f",parentView.frame.origin.y);
+//    NSLog(@" Width= %f",parentView.frame.size.width);
+//    NSLog(@" Heigth= %f",parentView.frame.size.height);
     
     CGRect parentFrame = parentView.frame;
     parentFrame.size.height -=(parentFrame.size.height/2.7) ;
@@ -88,7 +92,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedRowIndex = indexPath ;
-    NSLog(@"==%lu",(unsigned long)[self.tableDS indexOfObject:@"2.5"]);
+   // NSLog(@"==%lu",(unsigned long)[self.tableDS indexOfObject:@"2.5"]);
     if([indexPath row] == 1) {
         NSInteger ind = [self.tableDS indexOfObject:@"2.5"];
         if(ind == NSNotFound) {
@@ -97,9 +101,19 @@
         [self.tableDS insertObject:@"2.5" atIndex:2];
         NSIndexPath *aindexPath = [NSIndexPath indexPathForRow:row inSection:section];
         [tableView beginUpdates];
-        [tableView insertRowsAtIndexPaths:@[aindexPath] withRowAnimation:UITableViewRowAnimationTop];
+           [tableView insertRowsAtIndexPaths:@[aindexPath] withRowAnimation:UITableViewRowAnimationTop];
         [tableView endUpdates];
-        } else {
+
+        NSInteger ind2 =[self.tableDS indexOfObject:@"3.5"];
+            if(ind2 != NSNotFound) {
+                 NSLog(@" Deleting index Ind2 ==%li", (long)ind2);
+                [self.tableDS removeObjectAtIndex:ind2];
+                NSIndexPath *bindexPath = [NSIndexPath indexPathForRow:ind2 inSection:section];
+                 [tableView beginUpdates];
+                    [tableView deleteRowsAtIndexPaths:@[bindexPath] withRowAnimation:UITableViewRowAnimationTop];
+                [tableView endUpdates];
+            }
+                } else {
             NSInteger ind = [self.tableDS indexOfObject:@"2.5"];
             NSInteger row = 2;
             NSInteger section = 0;
@@ -112,7 +126,7 @@
         }
     }
     
-    if([indexPath row] == 3 || [indexPath row] == 4) {
+    if([indexPath row] == 3 ) {
         NSInteger ind = [self.tableDS indexOfObject:@"3.5"];
         if(ind == NSNotFound) {
             NSInteger row = 4;
@@ -121,7 +135,19 @@
             NSIndexPath *aindexPath = [NSIndexPath indexPathForRow:row inSection:section];
             [tableView beginUpdates];
             [tableView insertRowsAtIndexPaths:@[aindexPath] withRowAnimation:UITableViewRowAnimationTop];
-            [tableView endUpdates];
+             [tableView endUpdates];
+            NSInteger ind2 =[self.tableDS indexOfObject:@"2.5"];
+            if(ind2 != NSNotFound) {
+                NSLog(@" Deleting index Ind2 ==%li", (long)ind2);
+                [self.tableDS removeObjectAtIndex:ind2];
+                 NSIndexPath *bindexPath = [NSIndexPath indexPathForRow:ind2 inSection:section];
+                [tableView beginUpdates];
+                 [tableView deleteRowsAtIndexPaths:@[bindexPath] withRowAnimation:UITableViewRowAnimationTop];
+                [tableView endUpdates];
+                
+            }
+           
+            
         }else {
             NSInteger ind = [self.tableDS indexOfObject:@"3.5"];
             NSInteger row = 4;
@@ -136,6 +162,39 @@
     }
 
     
+    if([indexPath row] == 4) {
+        NSInteger ind = [self.tableDS indexOfObject:@"3.5"];
+        if(ind == NSNotFound) {
+            NSInteger row = 5;
+            NSInteger section = 0;
+            [self.tableDS insertObject:@"3.5" atIndex:5];
+            NSIndexPath *aindexPath = [NSIndexPath indexPathForRow:row inSection:section];
+            [tableView beginUpdates];
+             [tableView insertRowsAtIndexPaths:@[aindexPath] withRowAnimation:UITableViewRowAnimationTop];
+            [tableView endUpdates];
+            NSInteger ind2 =[self.tableDS indexOfObject:@"2.5"];
+            if(ind2 != NSNotFound) {
+                [self.tableDS removeObjectAtIndex:ind2];
+                  NSIndexPath *bindexPath = [NSIndexPath indexPathForRow:ind2 inSection:section];
+                 [tableView beginUpdates];
+                   [tableView deleteRowsAtIndexPaths:@[bindexPath] withRowAnimation:UITableViewRowAnimationTop];
+                [tableView endUpdates];
+
+            }
+            
+        }else {
+            NSInteger ind = [self.tableDS indexOfObject:@"3.5"];
+            NSInteger row = 5;
+            NSInteger section = 0;
+            [self.tableDS removeObjectAtIndex:ind];
+            NSIndexPath *aindexPath = [NSIndexPath indexPathForRow:row inSection:section];
+            [tableView beginUpdates];
+            [tableView deleteRowsAtIndexPaths:@[aindexPath] withRowAnimation:UITableViewRowAnimationTop];
+            [tableView endUpdates];
+            
+        }
+    }
+
 }
 
 
@@ -149,7 +208,7 @@
 //    }
     
     if ([indexPath row] ==2 ) {
-       NSLog(@"DS = %@",self.tableDS[[indexPath row]]);
+    //   NSLog(@"DS = %@",self.tableDS[[indexPath row]]);
             if ([self.tableDS[[indexPath row]] isEqual:@"2.5"]) {
 //                NSLog(@" ======Increasing Size=========");
                 return 100;
@@ -209,7 +268,7 @@
         [cell.contentView addSubview:self.enableTouchLogin];
 
     
-    NSLog(@" Index= %ld", (long)[indexPath row]);
+  //  NSLog(@" Index= %ld", (long)[indexPath row]);
         return cell;
     }
     
@@ -247,7 +306,7 @@
 //        [cell.contentView addSubview:self.pickLockTime];
 
         
-        NSLog(@" Index= %ld", (long)[indexPath row]);
+    //    NSLog(@" Index= %ld", (long)[indexPath row]);
         return cell;
     }
     
@@ -270,15 +329,15 @@
             
             self.pickLockTime = [[UIPickerView alloc] initWithFrame:frame];
             
-            VGLockTimePickViewDelegate *lockTimeDelegate = [[VGLockTimePickViewDelegate alloc] initWithDataSource];
+//            VGLockTimePickViewDelegate *lockTimeDelegate = [[VGLockTimePickViewDelegate alloc] initWithDataSource];
             
-            [self.pickLockTime setDataSource:lockTimeDelegate];
-            [self.pickLockTime setDelegate:lockTimeDelegate];
+            [self.pickLockTime setDataSource:self.lockTimeDelegate];
+            [self.pickLockTime setDelegate:self.lockTimeDelegate];
             self.pickLockTime.showsSelectionIndicator = YES;
             self.pickLockTime.hidden = NO;
             
-            [self addChildViewController:lockTimeDelegate];
-            self.lockTimeText = lockTimeDelegate.selectedCategory;
+            [self addChildViewController:self.lockTimeDelegate];
+            self.lockTimeText = self.lockTimeDelegate.selectedCategory;
           
             [cell.contentView addSubview:self.pickLockTime];
             
@@ -306,7 +365,7 @@
         [cell.contentView addSubview:self.lockOnExit];
         }
         
-        NSLog(@" Index= %ld", (long)[indexPath row]);
+     //   NSLog(@" Index= %ld", (long)[indexPath row]);
         return cell;
     }
     
@@ -343,7 +402,7 @@
 //        cell.textLabel.backgroundColor =[UIColor whiteColor];
 //        cell.imageView.backgroundColor =[UIColor whiteColor];
 //        cell.detailTextLabel.text = @"5 times";
-        cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
+        //cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         
 //        CGRect frame = CGRectZero;
 //        frame.origin.x += 150;
@@ -354,20 +413,20 @@
         
         self.pickTolarableRetry = [[UIPickerView alloc] initWithFrame:sframe];
         
-        VGTolarableRetryPickViewDelegate *tolorableRetryDelegate = [[VGTolarableRetryPickViewDelegate alloc] initWithDataSource];
+//        VGTolarableRetryPickViewDelegate *tolorableRetryDelegate = [[VGTolarableRetryPickViewDelegate alloc] initWithDataSource];
         
-        self.tolerableRetryCount = tolorableRetryDelegate.selectedCategory;
+        self.tolerableRetryCount = self.tolorableRetryDelegate.selectedCategory;
         
-        [self.pickTolarableRetry setDataSource:tolorableRetryDelegate];
-        [self.pickTolarableRetry setDelegate:tolorableRetryDelegate];
+        [self.pickTolarableRetry setDataSource:self.tolorableRetryDelegate];
+        [self.pickTolarableRetry setDelegate:self.tolorableRetryDelegate];
         self.pickTolarableRetry.showsSelectionIndicator = YES;
         self.pickTolarableRetry.hidden = NO;
         
-        [self addChildViewController:tolorableRetryDelegate];
+        [self addChildViewController:self.tolorableRetryDelegate];
         
         [cell.contentView addSubview:self.pickTolarableRetry];
         
-        NSLog(@" Index= %ld", (long)[indexPath row]);
+     //   NSLog(@" Index= %ld", (long)[indexPath row]);
         return cell;
     }
 
