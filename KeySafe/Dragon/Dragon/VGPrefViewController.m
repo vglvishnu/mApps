@@ -126,6 +126,19 @@
         }
     }
     
+    if([indexPath row] == 2) {
+        NSInteger ind = [self.tableDS indexOfObject:@"2.5"];
+        if(ind != NSNotFound) {
+           //  NSIndexPath *aindexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+            NSLog(@"I'm here");
+            [tableView beginUpdates];
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+            [tableView endUpdates];
+            }
+        
+    }
+
+    
     if([indexPath row] == 3 ) {
         NSInteger ind = [self.tableDS indexOfObject:@"3.5"];
         if(ind == NSNotFound) {
@@ -225,7 +238,7 @@
         
     }
     
-    return 44;
+    return 40;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
