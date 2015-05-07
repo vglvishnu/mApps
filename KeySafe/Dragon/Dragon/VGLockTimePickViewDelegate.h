@@ -11,6 +11,9 @@
 @interface VGLockTimePickViewDelegate : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property NSString* selectedCategory;
+@property UITableView *parentTableView;
+@property NSIndexPath *ip;
+
 -(id) initWithDataSource ;
 
 @end

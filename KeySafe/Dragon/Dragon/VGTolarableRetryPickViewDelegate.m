@@ -50,6 +50,8 @@
     
     NSLog(@"%@",[self.tolarableRetryArray objectAtIndex:row]);
     self.selectedCategory = [NSString stringWithFormat:@"%@",[self.tolarableRetryArray objectAtIndex:row]];
+    UITableViewCell *cell = (UITableViewCell *)[self.parentTableView cellForRowAtIndexPath:self.ip];
+    cell.detailTextLabel.text = self.selectedCategory;
 }
 
 // tell the picker how many rows are available for a given component

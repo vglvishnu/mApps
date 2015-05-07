@@ -32,13 +32,13 @@
     UIView *contentView = [[UIView alloc] initWithFrame:frame];
     [contentView setBackgroundColor:[UIColor whiteColor]];
     contentView.layer.cornerRadius = 6;
-    self.lockTimeText = @"5 times";
-    self.tolerableRetryCount = @"5 times";
+    self.lockTimeText = @"5 mins";
+    self.tolerableRetryCount = @"5";
     [self.view addSubview:contentView];
     self.tableDS = [[NSMutableArray alloc] initWithObjects:@"0",@"1",@"2",@"3", nil];
     self.lockTimeDelegate = [[VGLockTimePickViewDelegate alloc] initWithDataSource];
     self.tolorableRetryDelegate = [[VGTolarableRetryPickViewDelegate alloc] initWithDataSource];
-
+    
     [self configurePrefTable:contentView];
 }
 
@@ -62,10 +62,6 @@
 
 -(void) configurePrefTable:(UIView *) parentView {
     
-//    NSLog(@" x= %f",parentView.frame.origin.x);
-//    NSLog(@" y= %f",parentView.frame.origin.y);
-//    NSLog(@" Width= %f",parentView.frame.size.width);
-//    NSLog(@" Heigth= %f",parentView.frame.size.height);
     
     CGRect parentFrame = parentView.frame;
     parentFrame.size.height -=(parentFrame.size.height/2.7) ;
@@ -82,7 +78,8 @@
     self.prefTableView.layer.cornerRadius  = 6;
     [self.prefTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
    
-                                              
+    self.tolorableRetryDelegate.parentTableView = self.prefTableView;
+    self.lockTimeDelegate.parentTableView = self.prefTableView;
     [parentView addSubview:self.prefTableView];
     
 }
@@ -92,7 +89,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedRowIndex = indexPath ;
-   // NSLog(@"==%lu",(unsigned long)[self.tableDS indexOfObject:@"2.5"]);
+
     if([indexPath row] == 1) {
         NSInteger ind = [self.tableDS indexOfObject:@"2.5"];
         if(ind == NSNotFound) {
@@ -295,45 +292,23 @@
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.textLabel.backgroundColor =[UIColor whiteColor];
         cell.imageView.backgroundColor =[UIColor whiteColor];
-        cell.detailTextLabel.text = @"5 mins";
-        
+        cell.detailTextLabel.text = self.lockTimeText;
+        self.lockTimeDelegate.ip = indexPath;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         
-//        CGRect frame = CGRectZero;
-//        frame.origin.x += 200;
-//        frame.origin.y += 6;
-//        
-//        self.pickLockTime = [[UIPickerView alloc] initWithFrame:frame];
-//        
-//        VGLockTimePickViewDelegate *lockTimeDelegate = [[VGLockTimePickViewDelegate alloc] initWithDataSource];
-//        
-//        [self.pickLockTime setDataSource:lockTimeDelegate];
-//        [self.pickLockTime setDelegate:lockTimeDelegate];
-//         self.pickLockTime.showsSelectionIndicator = YES;
-//         self.pickLockTime.hidden = YES;
-//        
-//        [self addChildViewController:lockTimeDelegate];
-//        
-//        
-//        [cell.contentView addSubview:self.pickLockTime];
 
-        
-    //    NSLog(@" Index= %ld", (long)[indexPath row]);
         return cell;
     }
     
     if([indexPath row] ==2 ) {
         
         UITableViewCell *cell = [[UITableViewCell alloc] init];
-        //cell.layer.cornerRadius = 6;
+
         
         cell.backgroundColor = [UIColor whiteColor];
-        //cell.textLabel.text = @"Lock On Exit";
+
         cell.contentView.backgroundColor = [UIColor whiteColor];
-        //cell.textLabel.backgroundColor =[UIColor whiteColor];
-        //cell.imageView.backgroundColor =[UIColor whiteColor];
-        
         if ([self.tableDS[[indexPath row]]  isEqual: @"2.5"]) {
             
             
@@ -341,16 +316,15 @@
             CGRect frame = CGRectMake(50,-20,200,100);
             
             self.pickLockTime = [[UIPickerView alloc] initWithFrame:frame];
-            
-//            VGLockTimePickViewDelegate *lockTimeDelegate = [[VGLockTimePickViewDelegate alloc] initWithDataSource];
+            self.lockTimeText = self.lockTimeDelegate.selectedCategory;
             
             [self.pickLockTime setDataSource:self.lockTimeDelegate];
             [self.pickLockTime setDelegate:self.lockTimeDelegate];
-            self.pickLockTime.showsSelectionIndicator = YES;
-            self.pickLockTime.hidden = NO;
+             self.pickLockTime.showsSelectionIndicator = YES;
+             self.pickLockTime.hidden = NO;
             
             [self addChildViewController:self.lockTimeDelegate];
-            self.lockTimeText = self.lockTimeDelegate.selectedCategory;
+            
           
             [cell.contentView addSubview:self.pickLockTime];
             
@@ -378,7 +352,6 @@
         [cell.contentView addSubview:self.lockOnExit];
         }
         
-     //   NSLog(@" Index= %ld", (long)[indexPath row]);
         return cell;
     }
     
@@ -395,7 +368,7 @@
         cell.textLabel.backgroundColor =[UIColor whiteColor];
         cell.imageView.backgroundColor =[UIColor whiteColor];
        
-        
+        self.tolorableRetryDelegate.ip = indexPath;
         cell.detailTextLabel.text = self.tolerableRetryCount;
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         
@@ -406,27 +379,16 @@
         
         
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        //cell.layer.cornerRadius = 6;
         
         
-        cell.backgroundColor = [UIColor whiteColor];
-        //cell.textLabel.text = @"Tolerable Retry";
+        cell.backgroundColor = [UIColor whiteColor] ;
         cell.contentView.backgroundColor = [UIColor whiteColor];
-//        cell.textLabel.backgroundColor =[UIColor whiteColor];
-//        cell.imageView.backgroundColor =[UIColor whiteColor];
-//        cell.detailTextLabel.text = @"5 times";
-        //cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
-        
-//        CGRect frame = CGRectZero;
-//        frame.origin.x += 150;
-//        frame.origin.y -= 10;
         CGRect sframe = CGRectMake(50,-20,200,100);
         
       
         
         self.pickTolarableRetry = [[UIPickerView alloc] initWithFrame:sframe];
         
-//        VGTolarableRetryPickViewDelegate *tolorableRetryDelegate = [[VGTolarableRetryPickViewDelegate alloc] initWithDataSource];
         
         self.tolerableRetryCount = self.tolorableRetryDelegate.selectedCategory;
         
