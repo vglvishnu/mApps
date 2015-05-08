@@ -64,17 +64,18 @@
     
     
     CGRect parentFrame = parentView.frame;
-    parentFrame.size.height -=(parentFrame.size.height/2.7) ;
+    parentFrame.size.height -=(parentFrame.size.height/2.5) ;
     parentFrame.origin.y    += 50;
     parentFrame.origin.x    += 6;
     parentFrame.size.width  -= (parentFrame.size.height/5.6);
    
     
-    self.prefTableView = [[UITableView alloc] initWithFrame:parentFrame style:UITableViewStyleGrouped];
+    self.prefTableView = [[UITableView alloc] initWithFrame:parentView.frame style:UITableViewStyleGrouped];
     self.prefTableView.autoresizesSubviews = YES;
     self.prefTableView.dataSource          = self;
     self.prefTableView.delegate            = self;
-    self.prefTableView.backgroundColor     = [UIColor greenColor];
+    self.prefTableView.backgroundColor     = [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0];
+    //self.prefTableView.backgroundColor     = [UIColor lightGrayColor];
     self.prefTableView.layer.cornerRadius  = 6;
     [self.prefTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
    
@@ -103,9 +104,9 @@
 
         NSInteger ind2 =[self.tableDS indexOfObject:@"3.5"];
             if(ind2 != NSNotFound) {
-                 NSLog(@" Deleting index Ind2 ==%li", (long)ind2);
-                [self.tableDS removeObjectAtIndex:ind2];
-                NSIndexPath *bindexPath = [NSIndexPath indexPathForRow:ind2 inSection:section];
+                  NSLog(@" Deleting index Ind2 ==%li", (long)ind2);
+                 [self.tableDS removeObjectAtIndex:ind2];
+                 NSIndexPath *bindexPath = [NSIndexPath indexPathForRow:ind2 inSection:section];
                  [tableView beginUpdates];
                     [tableView deleteRowsAtIndexPaths:@[bindexPath] withRowAnimation:UITableViewRowAnimationTop];
                 [tableView endUpdates];
@@ -152,7 +153,7 @@
                 [self.tableDS removeObjectAtIndex:ind2];
                  NSIndexPath *bindexPath = [NSIndexPath indexPathForRow:ind2 inSection:section];
                 [tableView beginUpdates];
-                 [tableView deleteRowsAtIndexPaths:@[bindexPath] withRowAnimation:UITableViewRowAnimationTop];
+                [tableView deleteRowsAtIndexPaths:@[bindexPath] withRowAnimation:UITableViewRowAnimationTop];
                 [tableView endUpdates];
                 
             }
@@ -163,7 +164,7 @@
             NSInteger row = 4;
             NSInteger section = 0;
             [self.tableDS removeObjectAtIndex:ind];
-            NSIndexPath *aindexPath = [NSIndexPath indexPathForRow:row inSection:section];
+             NSIndexPath *aindexPath = [NSIndexPath indexPathForRow:row inSection:section];
             [tableView beginUpdates];
             [tableView deleteRowsAtIndexPaths:@[aindexPath] withRowAnimation:UITableViewRowAnimationTop];
             [tableView endUpdates];
@@ -250,20 +251,25 @@
    
     
     if([indexPath row] ==0 ) {
-   
+        
+        CGRect tframe = tableView.frame;
+        tframe.size.width -=1000;
+        //frame.origin.y += 6;
+        
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     //cell.layer.cornerRadius = 6;
-    
+        cell.frame = tframe;
     cell.backgroundColor = [UIColor whiteColor];
     cell.textLabel.text = @"Enable Touch";
     cell.contentView.backgroundColor = [UIColor whiteColor];
     cell.textLabel.backgroundColor =[UIColor whiteColor];
     cell.imageView.backgroundColor =[UIColor whiteColor];
+    
         
         CGRect frame = CGRectZero;
         frame.origin.x += 200;
         frame.origin.y += 6;
-        
+        //frame.size.width -=50;
         
         self.enableTouchLogin = [[UISwitch alloc] initWithFrame:frame];
         
@@ -313,7 +319,7 @@
             
             
             
-            CGRect frame = CGRectMake(50,-20,200,100);
+            CGRect frame = CGRectMake(50,-20,200,90);
             
             self.pickLockTime = [[UIPickerView alloc] initWithFrame:frame];
             self.lockTimeText = self.lockTimeDelegate.selectedCategory;
@@ -383,7 +389,7 @@
         
         cell.backgroundColor = [UIColor whiteColor] ;
         cell.contentView.backgroundColor = [UIColor whiteColor];
-        CGRect sframe = CGRectMake(50,-20,200,100);
+        CGRect sframe = CGRectMake(50,-20,200,90);
         
       
         
