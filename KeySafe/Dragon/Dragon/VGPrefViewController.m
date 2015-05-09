@@ -65,7 +65,7 @@
     
     CGRect parentFrame = parentView.frame;
     parentFrame.size.height -=(parentFrame.size.height/2.5) ;
-    parentFrame.origin.y    += 50;
+    parentFrame.origin.y    += 250;
     parentFrame.origin.x    += 6;
     parentFrame.size.width  -= (parentFrame.size.height/5.6);
    

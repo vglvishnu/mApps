@@ -177,12 +177,12 @@
     
     VGSetPasswordViewController  *pwdSettingController = [[VGSetPasswordViewController alloc] init];
     
-    VGSetPrefViewController *setPrefController = [[VGSetPrefViewController alloc] init];
+   // VGSetPrefViewController *setPrefController = [[VGSetPrefViewController alloc] init];
     VGPrefViewController  *prefController = [[VGPrefViewController alloc] init];
     
     self.viewControllers = [NSMutableArray array];
     [self.viewControllers addObject:pwdSettingController];
-    [self.viewControllers addObject:setPrefController];
+   // [self.viewControllers addObject:setPrefController];
     [self.viewControllers addObject:prefController];
 }
 
