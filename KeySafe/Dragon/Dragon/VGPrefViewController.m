@@ -263,7 +263,7 @@
         
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     //cell.layer.cornerRadius = 6;
-        cell.frame = tframe;
+    cell.frame = tframe;
     cell.backgroundColor = [UIColor whiteColor];
     cell.textLabel.text = @"Enable Touch";
     cell.contentView.backgroundColor = [UIColor whiteColor];
@@ -295,6 +295,8 @@
         
         //[self.enableTouchLogin setOnTintColor:[UIColor greenColor]];
         [self.enableTouchLogin setOn:YES animated:YES];
+        
+        [self.enableTouchLogin addTarget:self action:@selector(touchLoginSwitchChanged:) forControlEvents:UIControlEventValueChanged];
         
         [cell.contentView addSubview:self.enableTouchLogin];
 
@@ -373,6 +375,8 @@
         [self.lockOnExit setTintColor:[UIColor colorWithRed:204.0/255.0 green:229.0/255.0 blue:255.0/255.0 alpha:1.0]];
         [self.lockOnExit setOnTintColor:[UIColor colorWithRed:51.0/255.0 green: 153./255.0 blue:225.0/255.0 alpha:1.0]];
         [self.lockOnExit setOn:YES animated:YES];
+            
+         [self.lockOnExit addTarget:self action:@selector(lockOnExitSwitchChanged:) forControlEvents:UIControlEventValueChanged];
         [self.lockOnExit setOpaque:NO];
         [cell.contentView addSubview:self.lockOnExit];
         }
@@ -440,6 +444,19 @@
 }
 
 
+-(void) touchLoginSwitchChanged:(id)sender {
+    UISwitch* switcher = (UISwitch*)sender;
+    BOOL value = switcher.on;
+    // Store the value and/or respond appropriately
+  //  NSLog(@" Value = %@",value?"Y":"N");
+}
+
+-(void) lockOnExitSwitchChanged:(id)sender {
+    UISwitch* switcher = (UISwitch*)sender;
+    BOOL value = switcher.on;
+    // Store the value and/or respond appropriately
+    //NSLog(@" Value = %@",value?"Y":"N");
+}
 
 
 @end
