@@ -67,10 +67,15 @@
     parentFrame.size.height -=(parentFrame.size.height/2.5) ;
     parentFrame.origin.y    += 250;
     parentFrame.origin.x    += 6;
-    parentFrame.size.width  -= (parentFrame.size.height/5.6);
+    parentFrame.size.width  -= 100;
    
+    NSLog(@"parentFrame.origin.x %f",parentFrame.origin.x);
+    NSLog(@"parentFrame.origin.y %f",parentFrame.origin.y);
+    NSLog(@"parentFrame.size.height %f",parentFrame.size.height);
+    NSLog(@"parentFrame.size.width %f",parentFrame.size.width);
     
     self.prefTableView = [[UITableView alloc] initWithFrame:parentView.frame style:UITableViewStyleGrouped];
+    self.prefTableView.frame = CGRectMake(0,10,self.view.frame.size.width - 30,self.view.frame.size.height-200);
     self.prefTableView.autoresizesSubviews = YES;
     self.prefTableView.dataSource          = self;
     self.prefTableView.delegate            = self;
@@ -264,21 +269,31 @@
     cell.contentView.backgroundColor = [UIColor whiteColor];
     cell.textLabel.backgroundColor =[UIColor whiteColor];
     cell.imageView.backgroundColor =[UIColor whiteColor];
-    
+    cell.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
+
         
-        CGRect frame = CGRectZero;
-        frame.origin.x += 200;
-        frame.origin.y += 6;
-        //frame.size.width -=50;
+        self.enableTouchLogin = [[UISwitch alloc] init];
         
-        self.enableTouchLogin = [[UISwitch alloc] initWithFrame:frame];
+      
+        CGSize switchSize = [self.enableTouchLogin sizeThatFits:CGSizeZero];
+         self.enableTouchLogin.frame = CGRectMake(cell.contentView.bounds.size.width - switchSize.width - 10.0f,
+                                  (cell.contentView.bounds.size.height - switchSize.height) / 2.0f,
+                                  switchSize.width,
+                                  switchSize.height);
+        
+        self.enableTouchLogin.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
         
         
+       [self.enableTouchLogin setThumbTintColor:[UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0]];
         
-        [self.enableTouchLogin setThumbTintColor:[UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0]];
+        
         [self.enableTouchLogin setUserInteractionEnabled:YES];
         [self.enableTouchLogin setTintColor:[UIColor colorWithRed:204.0/255.0 green:229.0/255.0 blue:255.0/255.0 alpha:1.0]];
+        
+        
         [self.enableTouchLogin setOnTintColor:[UIColor colorWithRed:51.0/255.0 green: 153./255.0 blue:225.0/255.0 alpha:1.0]];
+        
+        //[self.enableTouchLogin setOnTintColor:[UIColor greenColor]];
         [self.enableTouchLogin setOn:YES animated:YES];
         
         [cell.contentView addSubview:self.enableTouchLogin];
@@ -300,7 +315,7 @@
         cell.imageView.backgroundColor =[UIColor whiteColor];
         cell.detailTextLabel.text = self.lockTimeText;
         self.lockTimeDelegate.ip = indexPath;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.selectionStyle = UITableViewCellAccessoryDisclosureIndicator;
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         
 
@@ -319,9 +334,9 @@
             
             
             
-            CGRect frame = CGRectMake(50,-20,200,90);
-            
-            self.pickLockTime = [[UIPickerView alloc] initWithFrame:frame];
+        
+            CGRect sframe = CGRectMake(50,-20,200,90);
+            self.pickLockTime = [[UIPickerView alloc] initWithFrame:sframe];
             self.lockTimeText = self.lockTimeDelegate.selectedCategory;
             
             [self.pickLockTime setDataSource:self.lockTimeDelegate];
@@ -337,17 +352,21 @@
             
         } else {
         
-        CGRect frame = CGRectZero;
-        frame.origin.x += 200;
-        frame.origin.y += 6;
+       
         cell.textLabel.text = @"Lock On Exit";
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.textLabel.backgroundColor =[UIColor whiteColor];
         cell.imageView.backgroundColor =[UIColor whiteColor];
         
-        self.lockOnExit = [[UISwitch alloc] initWithFrame:frame];
+        self.lockOnExit = [[UISwitch alloc] init];
         
-        
+            
+        CGSize switchSize = [self.lockOnExit sizeThatFits:CGSizeZero];
+        self.lockOnExit.frame = CGRectMake(cell.contentView.bounds.size.width - switchSize.width - 10.0f,
+                                                     (cell.contentView.bounds.size.height - switchSize.height) / 2.0f,
+                                                     switchSize.width,
+                                                     switchSize.height);
+         self.lockOnExit.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
         
         [self.lockOnExit setThumbTintColor:[UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:255.0/255.0 alpha:1.0]];
         [self.lockOnExit setUserInteractionEnabled:YES];
