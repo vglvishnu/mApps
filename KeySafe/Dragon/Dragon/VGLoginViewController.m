@@ -54,9 +54,9 @@
     
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"DragonPropertiesList" ofType:@"plist"];
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    self.dict = [[NSDictionary alloc] initWithContentsOfFile:path];
     
-    BOOL isConfigured = [[dict objectForKey:@"isConfigured"]boolValue];
+    BOOL isConfigured = [[self.dict objectForKey:@"isConfigured"]boolValue];
     NSLog(isConfigured ? @"YES":@"NO");
     
     if(!isConfigured) {

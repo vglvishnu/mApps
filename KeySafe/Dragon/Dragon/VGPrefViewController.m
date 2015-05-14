@@ -9,6 +9,7 @@
 #import "VGPrefViewController.h"
 #import "VGLockTimePickViewDelegate.h"
 #import "VGTolarableRetryPickViewDelegate.h"
+#import "VGLoginViewController.h"
 
 @interface VGPrefViewController ()
 @property NSIndexPath *selectedRowIndex;
@@ -448,14 +449,14 @@
     UISwitch* switcher = (UISwitch*)sender;
     BOOL value = switcher.on;
     // Store the value and/or respond appropriately
-  //  NSLog(@" Value = %@",value?"Y":"N");
+    NSLog(@" Value = %@",value ? @"Y":@"N");
 }
 
 -(void) lockOnExitSwitchChanged:(id)sender {
     UISwitch* switcher = (UISwitch*)sender;
     BOOL value = switcher.on;
     // Store the value and/or respond appropriately
-    //NSLog(@" Value = %@",value?"Y":"N");
+    NSLog(@" Value = %@",value ? @"Y":@"N");
 }
 
 

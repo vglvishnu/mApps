@@ -11,5 +11,7 @@
 @interface VGLoginViewController : UIViewController <UIPageViewControllerDataSource>
 
 
+@property (nonatomic) NSDictionary *dict;
+
 @end
 

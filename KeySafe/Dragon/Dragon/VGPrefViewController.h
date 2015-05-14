@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VGLoginViewController.h"
 
 @interface VGPrefViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) UITableView *prefTableView;

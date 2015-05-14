@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>lockTime</key>
+	<date>2015-05-14T21:45:03Z</date>
+	<key>retryTolerance</key>
+	<integer>100</integer>
+	<key>lockOnExit</key>
+	<false/>
+	<key>enableTouchLogin</key>
+	<false/>
 	<key>isConfigured</key>
 	<false/>
 </dict>
